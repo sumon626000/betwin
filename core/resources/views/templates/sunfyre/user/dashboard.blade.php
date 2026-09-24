@@ -368,6 +368,9 @@
     .game-tag, .game-item__title, h4 { display: none !important; }
     .main-footer-section { margin-top: 25px; padding-bottom: 20px; }
 
+    /* Home stacked rows: show max 12 tiles per category */
+    .home-row-grid > *:nth-child(n+13) { display: none !important; }
+
     /* â”€â”€â”€ DESKTOP â”€â”€â”€ */
     @media (min-width: 900px) {
         .bottom-nav-container { max-width: 600px; }
@@ -429,45 +432,75 @@
     </div>
 </nav>
 
-<!-- GAMES SECTIONS -->
+<!-- GAMES SECTIONS — stacked category rows -->
 <div id="gamesSections">
-    <div class="section-container" data-provider="hot">
+    <div class="section-container home-row" data-provider="hot" data-home-row="1">
         <div class="sec-header">
             <div class="sec-title"><i class="fas fa-fire"></i> @lang('HOT GAMES')</div>
-            <a href="javascript:void(0)" class="btn-see-all" onclick="seeAll('hot')" style="display:none;">@lang('See All')</a>
+            <a href="javascript:void(0)" class="btn-see-all" onclick="filterGames('hot', document.querySelector('.cat-pill'))">@lang('See All')</a>
         </div>
         <div class="games-section" id="hot-wrapper" data-status="1">
-            <div class="game-grid">@include($activeTemplate . 'partials.hot-games')</div>
+            <div class="game-grid home-row-grid">@include($activeTemplate . 'partials.hot-games')</div>
         </div>
     </div>
 
-    <div class="section-container" data-provider="sports" style="display:none;">
+    <div class="section-container home-row" data-provider="sports" data-home-row="1">
         <div class="sec-header">
             <div class="sec-title"><i class="fas fa-futbol"></i> @lang('SPORTS')</div>
-            <a href="javascript:void(0)" class="btn-see-all" onclick="seeAll('sports')">@lang('See All')</a>
+            <a href="javascript:void(0)" class="btn-see-all" onclick="filterGames('sports', document.querySelectorAll('.cat-pill')[1])">@lang('See All')</a>
         </div>
         <div class="games-section" id="sports-wrapper" data-status="1">
-            <div class="game-grid">@include($activeTemplate . 'partials.sports-games')</div>
+            <div class="game-grid home-row-grid">@include($activeTemplate . 'partials.sports-games')</div>
         </div>
     </div>
 
-    <div class="section-container" data-provider="crash" style="display:none;">
+    <div class="section-container home-row" data-provider="crash" data-home-row="1">
         <div class="sec-header">
-            <div class="sec-title"><i class="fas fa-chart-line"></i> @lang('CRASH GAMES')</div>
-            <a href="javascript:void(0)" class="btn-see-all" onclick="seeAll('crash')">@lang('See All')</a>
+            <div class="sec-title"><i class="fas fa-chart-line"></i> @lang('CRASH / MINI')</div>
+            <a href="javascript:void(0)" class="btn-see-all" onclick="filterGames('crash', document.querySelectorAll('.cat-pill')[2])">@lang('See All')</a>
         </div>
         <div class="games-section" id="crash-wrapper" data-status="1">
-            <div class="game-grid">@include($activeTemplate . 'partials.crash-games')</div>
+            <div class="game-grid home-row-grid">@include($activeTemplate . 'partials.crash-games')</div>
         </div>
     </div>
 
-    <div class="section-container" data-provider="casino" style="display:none;">
+    <div class="section-container home-row" data-provider="casino" data-home-row="1">
         <div class="sec-header">
-            <div class="sec-title"><i class="fas fa-video"></i> @lang('CASINO')</div>
-            <a href="javascript:void(0)" class="btn-see-all" onclick="seeAll('casino')">@lang('See All')</a>
+            <div class="sec-title"><i class="fas fa-video"></i> @lang('LIVE CASINO')</div>
+            <a href="javascript:void(0)" class="btn-see-all" onclick="filterGames('casino', document.querySelectorAll('.cat-pill')[4])">@lang('See All')</a>
         </div>
         <div class="games-section" id="casino-wrapper" data-status="{{ isset($gameStatus['evo']) ? $gameStatus['evo']->status : 1 }}">
-            <div class="game-grid">@include($activeTemplate . 'partials.evo-games')</div>
+            <div class="game-grid home-row-grid">@include($activeTemplate . 'partials.evo-games')</div>
+        </div>
+    </div>
+
+    <div class="section-container home-row" data-provider="slots-row" data-home-row="1">
+        <div class="sec-header">
+            <div class="sec-title"><i class="fas fa-dice"></i> @lang('SLOTS')</div>
+            <a href="javascript:void(0)" class="btn-see-all" onclick="filterGames('slot', document.querySelectorAll('.cat-pill')[3])">@lang('See All')</a>
+        </div>
+        <div class="games-section" id="slots-home-wrapper" data-status="1">
+            <div class="game-grid home-row-grid">@include($activeTemplate . 'partials.slot-games')</div>
+        </div>
+    </div>
+
+    <div class="section-container home-row" data-provider="fishing" data-home-row="1">
+        <div class="sec-header">
+            <div class="sec-title"><i class="fas fa-fish"></i> @lang('FISHING')</div>
+            <a href="javascript:void(0)" class="btn-see-all" onclick="filterGames('fishing', document.querySelectorAll('.cat-pill')[6])">@lang('See All')</a>
+        </div>
+        <div class="games-section" id="fishing-wrapper" data-status="1">
+            <div class="game-grid home-row-grid">@include($activeTemplate . 'partials.fishing-games')</div>
+        </div>
+    </div>
+
+    <div class="section-container home-row" data-provider="poker" data-home-row="1">
+        <div class="sec-header">
+            <div class="sec-title"><i class="fas fa-chess"></i> @lang('POKER / TABLE')</div>
+            <a href="javascript:void(0)" class="btn-see-all" onclick="filterGames('poker', document.querySelectorAll('.cat-pill')[7])">@lang('See All')</a>
+        </div>
+        <div class="games-section" id="poker-home-wrapper" data-status="1">
+            <div class="game-grid home-row-grid">@include($activeTemplate . 'partials.km-games')</div>
         </div>
     </div>
 
@@ -629,13 +662,13 @@
 <div class="game-center">
     <div class="game-center-title">@lang('Game Center')</div>
     <div class="game-center-pills">
-        <a href="#" class="gc-pill">@lang('Slots')</a>
-        <a href="#" class="gc-pill">@lang('Live Casino')</a>
-        <a href="#" class="gc-pill">@lang('Sports')</a>
-        <a href="#" class="gc-pill">@lang('E-sports')</a>
-        <a href="#" class="gc-pill">@lang('Poker')</a>
-        <a href="#" class="gc-pill">@lang('Fish')</a>
-        <a href="#" class="gc-pill">@lang('Lottery')</a>
+        <a href="javascript:void(0)" class="gc-pill" onclick="filterGames('slot', document.querySelectorAll('.cat-pill')[3])">@lang('Slots')</a>
+        <a href="javascript:void(0)" class="gc-pill" onclick="filterGames('casino', document.querySelectorAll('.cat-pill')[4])">@lang('Live Casino')</a>
+        <a href="javascript:void(0)" class="gc-pill" onclick="filterGames('sports', document.querySelectorAll('.cat-pill')[1])">@lang('Sports')</a>
+        <a href="javascript:void(0)" class="gc-pill" onclick="filterGames('crash', document.querySelectorAll('.cat-pill')[2])">@lang('Crash')</a>
+        <a href="javascript:void(0)" class="gc-pill" onclick="filterGames('poker', document.querySelectorAll('.cat-pill')[7])">@lang('Poker')</a>
+        <a href="javascript:void(0)" class="gc-pill" onclick="filterGames('fishing', document.querySelectorAll('.cat-pill')[6])">@lang('Fish')</a>
+        <a href="javascript:void(0)" class="gc-pill" onclick="filterGames('table', document.querySelectorAll('.cat-pill')[5])">@lang('Table')</a>
     </div>
 </div>
 
@@ -723,9 +756,25 @@
         });
     }
 
+    function showHomeOverview() {
+        document.querySelectorAll('.section-container').forEach(s => {
+            s.style.display = 'none';
+            s.classList.remove('show-anim');
+        });
+        document.getElementById('provider-grid-container').style.display = 'none';
+        document.querySelectorAll('.section-container.home-row').forEach(s => {
+            s.style.display = 'block';
+        });
+        document.querySelector('.main-footer-section').style.display = 'block';
+        document.querySelector('.game-center').style.display = 'block';
+        document.querySelectorAll('.home-row-grid').forEach(g => g.classList.add('home-row-grid'));
+    }
+
     function filterGames(category, btn) {
-        document.querySelectorAll('.cat-pill').forEach(el => el.classList.remove('active'));
-        btn.classList.add('active');
+        if (btn) {
+            document.querySelectorAll('.cat-pill').forEach(el => el.classList.remove('active'));
+            btn.classList.add('active');
+        }
 
         requestAnimationFrame(() => {
             const sections = document.querySelectorAll('.section-container');
@@ -734,29 +783,76 @@
             document.querySelector('.main-footer-section').style.display = 'none';
             document.querySelector('.game-center').style.display = 'none';
 
+            if (category === 'hot' || category === 'home' || category === 'all') {
+                showHomeOverview();
+                return;
+            }
             if (category === 'slot') {
                 setProviderTitle('slot');
                 showProviderGridByType('slot');
+                document.querySelector('.main-footer-section').style.display = 'block';
+                document.querySelector('.game-center').style.display = 'block';
                 return;
             }
             if (category === 'casino') {
+                let casino = document.querySelector('.section-container[data-provider="casino"]');
+                if (casino) {
+                    casino.style.display = 'block';
+                    casino.classList.add('show-anim');
+                    const grid = casino.querySelector('.game-grid');
+                    if (grid) grid.classList.remove('home-row-grid');
+                }
                 setProviderTitle('casino');
                 showProviderGridByType('casino');
+                document.querySelector('.main-footer-section').style.display = 'block';
+                document.querySelector('.game-center').style.display = 'block';
                 return;
             }
             if (category === 'table') {
                 setProviderTitle('table');
                 showProviderGridByType(['table', 'cockfight']);
+                document.querySelector('.main-footer-section').style.display = 'block';
+                document.querySelector('.game-center').style.display = 'block';
                 return;
             }
             if (category === 'fishing') {
+                let fish = document.querySelector('.section-container[data-provider="fishing"]');
+                if (fish) {
+                    fish.style.display = 'block';
+                    fish.classList.add('show-anim');
+                    const grid = fish.querySelector('.game-grid');
+                    if (grid) grid.classList.remove('home-row-grid');
+                }
                 setProviderTitle('fishing');
                 showProviderGridByType('fishing');
+                document.querySelector('.main-footer-section').style.display = 'block';
+                document.querySelector('.game-center').style.display = 'block';
                 return;
             }
             if (category === 'poker') {
+                let poker = document.querySelector('.section-container[data-provider="poker"]');
+                if (poker) {
+                    poker.style.display = 'block';
+                    poker.classList.add('show-anim');
+                    const grid = poker.querySelector('.game-grid');
+                    if (grid) grid.classList.remove('home-row-grid');
+                }
                 setProviderTitle('poker');
                 showProviderGridByType('poker');
+                document.querySelector('.main-footer-section').style.display = 'block';
+                document.querySelector('.game-center').style.display = 'block';
+                return;
+            }
+            if (category === 'sports' || category === 'crash') {
+                let target = document.querySelector('.section-container[data-provider="' + category + '"]');
+                if (target) {
+                    target.style.display = 'block';
+                    target.classList.add('show-anim');
+                    const grid = target.querySelector('.game-grid');
+                    if (grid) grid.classList.remove('home-row-grid');
+                    document.querySelector('.main-footer-section').style.display = 'block';
+                    document.querySelector('.game-center').style.display = 'block';
+                }
                 return;
             }
 
@@ -769,6 +865,8 @@
             }
         });
     }
+
+    showHomeOverview();
 
     const RV_LOGGED_IN = @json(auth()->check());
     const RV_LOGIN_URL = @json(route('user.login'));
