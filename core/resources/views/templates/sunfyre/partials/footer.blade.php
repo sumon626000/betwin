@@ -33,6 +33,6 @@
     </div>
 
     <div class="site-footer__partners">
-        <img src="{{ asset('assets/images/frontend/footer/game.png') }}" alt="Partners">
+        {{-- Logos rendered above via provider_logos partial --}}
     </div>
 </footer>

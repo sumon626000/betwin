@@ -454,6 +454,8 @@
         </div>
     </div>
 
+    @include($activeTemplate . 'partials.jackpot_counter')
+
     <div class="section-container home-row" data-provider="sports" data-home-row="1">
         <div class="sec-header">
             <div class="sec-title"><i class="fas fa-futbol"></i> @lang('SPORTS')</div>
@@ -698,6 +700,7 @@
 </div>
 
 <div class="main-footer-section">
+    @include($activeTemplate . 'partials.provider_logos')
     @include($activeTemplate . 'partials.footer')
 </div>
 
@@ -790,6 +793,8 @@
         document.querySelectorAll('.section-container.home-row').forEach(s => {
             s.style.display = 'block';
         });
+        const jp = document.getElementById('jp-banner');
+        if (jp) jp.style.display = '';
         document.querySelector('.main-footer-section').style.display = 'block';
         document.querySelector('.game-center').style.display = 'block';
         document.querySelectorAll('.home-row-grid').forEach(g => g.classList.add('home-row-grid'));
@@ -807,6 +812,8 @@
             document.getElementById('provider-grid-container').style.display = 'none';
             document.querySelector('.main-footer-section').style.display = 'none';
             document.querySelector('.game-center').style.display = 'none';
+            const jpHide = document.getElementById('jp-banner');
+            if (jpHide) jpHide.style.display = 'none';
 
             if (category === 'hot' || category === 'home' || category === 'all') {
                 showHomeOverview();
@@ -911,6 +918,19 @@
             }
         });
     }
+
+    (function initJackpot() {
+        const el = document.getElementById('jp-digits');
+        const wrap = document.getElementById('jp-amount');
+        if (!el || !wrap) return;
+        let value = parseFloat(wrap.dataset.base || '109212560.5') || 109212560.5;
+        const fmt = (n) => n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        el.textContent = fmt(value);
+        setInterval(() => {
+            value += Math.random() * 18 + 2;
+            el.textContent = fmt(value);
+        }, 2200);
+    })();
 
     showHomeOverview();
 
