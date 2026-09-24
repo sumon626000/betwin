@@ -66,11 +66,12 @@ $crashGames = [
 
 @foreach ($crashGames as $game)
     @auth
-        <a href="{{ url('user/jili/launch?game_code='.$game['id'].'&provider=jili') }}" class="game-card" data-status="1">
+        <a href="{{ url('user/jili/launch?game_code='.$game['id'].'&provider='.($game['provider'] ?? 'jili')) }}" class="game-card" data-status="1">
     @else
         <a href="{{ route('user.login') }}" class="game-card" data-status="1">
     @endauth
-            <img class="game-card-img" src="{{ $game['img'] }}" alt="{{ $game['name'] }}" loading="lazy">
+            <img class="game-card-img" src="{{ $game['img'] }}" alt="{{ $game['name'] }}" loading="lazy" referrerpolicy="no-referrer"
+                 onerror="this.closest('.game-card')?.remove()">
             <div class="game-card-name">{{ $game['name'] }}</div>
         </a>
 @endforeach

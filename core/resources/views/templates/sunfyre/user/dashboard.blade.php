@@ -474,11 +474,19 @@
         @include($activeTemplate . 'partials.provider-grid')
     </div>
 
-    <div class="section-container" data-provider="__empty__" id="provider-empty-section" style="display:none;">
+    <div class="section-container" data-provider="__dynamic__" id="provider-dynamic-section" style="display:none;">
         <div class="sec-header">
             <a href="javascript:void(0)" class="btn-see-all" onclick="backToProviders()"><i class="fas fa-arrow-left"></i> Back</a>
-            <div class="sec-title"><i class="fas fa-gamepad"></i> <span id="provider-empty-title">Provider</span></div>
+            <div class="sec-title"><i class="fas fa-gamepad"></i> <span id="provider-dynamic-title">Provider</span></div>
         </div>
+        <div class="games-section">
+            <div class="game-grid" id="provider-dynamic-grid"></div>
+        </div>
+        <div id="provider-dynamic-empty" style="display:none;background:#fff;border-radius:12px;padding:28px 18px;text-align:center;color:#6b7280;">
+            <p style="margin:0 0 8px;font-weight:700;color:#123b66;">@lang('Games list syncing')</p>
+            <p style="margin:0;font-size:13px;">@lang('This provider is enabled from RapidVerse. Full game icons will appear after game-list import.')</p>
+        </div>
+    </div>
 
     @if(isset($gameStatus['jili']) && $gameStatus['jili']->status != 0)
     <div class="section-container" data-provider="jili" style="display:none;">
@@ -758,23 +766,96 @@
         });
     }
 
-    function selectProvider(provider) {
+    const RV_LOGGED_IN = @json(auth()->check());
+    const RV_LOGIN_URL = @json(route('user.login'));
+    const RV_LAUNCH_BASE = @json(url('user/jili/launch'));
+    const rvGamesCache = {};
+
+    function rvEsc(s) {
+        return String(s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    }
+
+    function rvGameImg(game, vendor) {
+        if (game.img) return game.img;
+        const code = game.code;
+        if (code !== undefined && code !== null && code !== '' && !isNaN(Number(code))) {
+            const folder = (vendor || game.vendor || 'JILI').toUpperCase();
+            return 'https://ossimg.91admin123admin.com/91club/gamelogo/' + folder + '/' + parseInt(code, 10) + '.png';
+        }
+        return '';
+    }
+
+    function renderDynamicGames(provider, games, title) {
+        const grid = document.getElementById('provider-dynamic-grid');
+        const empty = document.getElementById('provider-dynamic-empty');
+        const section = document.getElementById('provider-dynamic-section');
+        document.getElementById('provider-dynamic-title').textContent = (title || provider).toUpperCase();
+        grid.innerHTML = '';
+        if (!games || !games.length) {
+            grid.style.display = 'none';
+            empty.style.display = 'block';
+        } else {
+            empty.style.display = 'none';
+            grid.style.display = '';
+            const card = document.querySelector('.provider-card[data-key="' + provider + '"]');
+            const vendor = (card && card.dataset.vendor) || (games[0] && games[0].vendor) || provider.toUpperCase();
+            const frag = document.createDocumentFragment();
+            games.forEach(game => {
+                const id = game.id || game.gameID;
+                if (!id) return;
+                const name = game.name || game.gameNameEn || 'Game';
+                const img = rvGameImg(game, vendor);
+                const href = RV_LOGGED_IN
+                    ? (RV_LAUNCH_BASE + '?game_code=' + encodeURIComponent(id) + '&provider=' + encodeURIComponent(provider))
+                    : RV_LOGIN_URL;
+                const el = document.createElement('div');
+                el.className = 'game-card';
+                el.dataset.status = '1';
+                const imgHtml = img
+                    ? '<img class="game-card-img" src="' + rvEsc(img) + '" alt="' + rvEsc(name) + '" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display=\'none\';this.nextElementSibling&&(this.nextElementSibling.style.display=\'flex\');">'
+                    : '';
+                const fallback = '<div class="game-card-img" style="' + (img ? 'display:none;' : 'display:flex;') + 'align-items:center;justify-content:center;background:#123b66;color:#fff;font-weight:800;font-size:18px;">' + rvEsc((name || 'G').charAt(0).toUpperCase()) + '</div>';
+                el.innerHTML = '<a href="' + rvEsc(href) + '" class="game-card-img" title="' + rvEsc(name) + '" style="display:block;position:relative;">' + imgHtml + fallback + '</a><div class="game-card-name">' + rvEsc(name) + '</div>';
+                frag.appendChild(el);
+            });
+            grid.appendChild(frag);
+        }
+        section.style.display = 'block';
+        section.classList.add('show-anim');
+    }
+
+    async function selectProvider(provider) {
         document.getElementById('provider-grid-container').style.display = 'none';
-        let target = document.querySelector('.section-container[data-provider="' + provider + '"]');
         document.querySelectorAll('.section-container').forEach(s => { s.style.display = 'none'; s.classList.remove('show-anim'); });
+        document.querySelector('.main-footer-section').style.display = 'none';
+        document.querySelector('.game-center').style.display = 'none';
+
+        const card = document.querySelector('.provider-card[data-key="' + provider + '"]');
+        const name = card ? (card.querySelector('span')?.textContent || provider) : provider;
+
+        try {
+            if (!rvGamesCache[provider]) {
+                const res = await fetch('/games/' + encodeURIComponent(provider) + '.json?v=2', { cache: 'no-store' });
+                if (res.ok) {
+                    const data = await res.json();
+                    rvGamesCache[provider] = Array.isArray(data) ? data : (data.gameLists || []);
+                } else {
+                    rvGamesCache[provider] = [];
+                }
+            }
+            if (rvGamesCache[provider].length) {
+                renderDynamicGames(provider, rvGamesCache[provider], name);
+                return;
+            }
+        } catch (e) {}
+
+        let target = document.querySelector('.section-container[data-provider="' + provider + '"]');
         if (target) {
             target.style.display = 'block';
             target.classList.add('show-anim');
-        } else {
-            const card = document.querySelector('.provider-card[data-key="' + provider + '"]');
-            const name = card ? (card.querySelector('span')?.textContent || provider) : provider;
-            document.getElementById('provider-empty-title').textContent = name.toUpperCase();
-            const empty = document.getElementById('provider-empty-section');
-            empty.style.display = 'block';
-            empty.classList.add('show-anim');
+            return;
         }
-        document.querySelector('.main-footer-section').style.display = 'none';
-        document.querySelector('.game-center').style.display = 'none';
+        renderDynamicGames(provider, [], name);
     }
 
     function backToProviders() {

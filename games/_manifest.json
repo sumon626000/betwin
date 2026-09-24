@@ -1,0 +1,764 @@
+{
+    "pg": {
+        "sheet": "PGSoft",
+        "count": 160,
+        "vendor": "PG",
+        "slug": "pg"
+    },
+    "sabasports": {
+        "sheet": "SABASports(IBC)",
+        "count": 1,
+        "vendor": "SABASPORTS",
+        "slug": "sabasports"
+    },
+    "ug": {
+        "sheet": "UnitedGaming",
+        "count": 1,
+        "vendor": "UG",
+        "slug": "ug"
+    },
+    "jili": {
+        "sheet": "JILIGaming",
+        "count": 253,
+        "vendor": "JILI",
+        "slug": "jili"
+    },
+    "jilisweep": {
+        "sheet": "JILISweep",
+        "count": 105,
+        "vendor": "JILI",
+        "slug": "jili"
+    },
+    "tada": {
+        "sheet": "TADAGaming",
+        "count": 233,
+        "vendor": "TADA",
+        "slug": "tada"
+    },
+    "bflottobit下线调整": {
+        "sheet": "BFLottobit-下线调整",
+        "count": 32,
+        "vendor": "BFLOTTOBIT下线调整",
+        "slug": "bflottobit下线调整"
+    },
+    "jdb": {
+        "sheet": "JDBGaming",
+        "count": 164,
+        "vendor": "JDB",
+        "slug": "jdb"
+    },
+    "km": {
+        "sheet": "KM",
+        "count": 109,
+        "vendor": "KM",
+        "slug": "km"
+    },
+    "cq9": {
+        "sheet": "CQ9",
+        "count": 279,
+        "vendor": "CQ9",
+        "slug": "cq9"
+    },
+    "v8": {
+        "sheet": "V8",
+        "count": 38,
+        "vendor": "V8",
+        "slug": "v8"
+    },
+    "pp": {
+        "sheet": "PragmaticPlay-EU",
+        "count": 600,
+        "vendor": "PP",
+        "slug": "pp"
+    },
+    "pp_asia": {
+        "sheet": "PragmaticPlay-Asia",
+        "count": 600,
+        "vendor": "PP",
+        "slug": "pp_asia"
+    },
+    "pp_live": {
+        "sheet": "PragmaticPlayLive-EU",
+        "count": 480,
+        "vendor": "PP",
+        "slug": "pp_live"
+    },
+    "pp_live_asia": {
+        "sheet": "PragmaticPlayLive-Asia",
+        "count": 465,
+        "vendor": "PP",
+        "slug": "pp_live_asia"
+    },
+    "spribe": {
+        "sheet": "Spribe",
+        "count": 16,
+        "vendor": "SPRIBE",
+        "slug": "spribe"
+    },
+    "wm": {
+        "sheet": "WM",
+        "count": 1,
+        "vendor": "WM",
+        "slug": "wm"
+    },
+    "yeebet": {
+        "sheet": "YeeBet",
+        "count": 64,
+        "vendor": "YEEBET",
+        "slug": "yeebet"
+    },
+    "fc": {
+        "sheet": "FaChaiGaming",
+        "count": 75,
+        "vendor": "FC",
+        "slug": "fc"
+    },
+    "eazy": {
+        "sheet": "EazyGaming",
+        "count": 18,
+        "vendor": "EAZY",
+        "slug": "eazy"
+    },
+    "gameart": {
+        "sheet": "GameArt",
+        "count": 105,
+        "vendor": "GAMEART",
+        "slug": "gameart"
+    },
+    "bgaming": {
+        "sheet": "Bgaming",
+        "count": 242,
+        "vendor": "BGAMING",
+        "slug": "bgaming"
+    },
+    "kalamba": {
+        "sheet": "Kalamba",
+        "count": 81,
+        "vendor": "KALAMBA",
+        "slug": "kalamba"
+    },
+    "mancala暂时下架": {
+        "sheet": "Mancala-暂时下架",
+        "count": 32,
+        "vendor": "MANCALA暂时下架",
+        "slug": "mancala暂时下架"
+    },
+    "evo": {
+        "sheet": "Evolution Live(Asia)",
+        "count": 600,
+        "vendor": "EVOLUTION",
+        "slug": "evo"
+    },
+    "evolutioinbigtimegaming": {
+        "sheet": "Evolutioin-BigTimeGaming",
+        "count": 67,
+        "vendor": "EVOLUTIOINBIGTIMEGAMING",
+        "slug": "evolutioinbigtimegaming"
+    },
+    "evolutionbigtimegaming": {
+        "sheet": "Evolution-BigTimeGaming(Asia)",
+        "count": 59,
+        "vendor": "EVOLUTIONBIGTIMEGAMING",
+        "slug": "evolutionbigtimegaming"
+    },
+    "evolutioinnetent": {
+        "sheet": "Evolutioin-Netent",
+        "count": 252,
+        "vendor": "EVOLUTIOINNETENT",
+        "slug": "evolutioinnetent"
+    },
+    "evolutionnetent": {
+        "sheet": "Evolution-NetEnt(Asia)",
+        "count": 244,
+        "vendor": "EVOLUTIONNETENT",
+        "slug": "evolutionnetent"
+    },
+    "evolutionredtiger": {
+        "sheet": "Evolution-RedTiger",
+        "count": 393,
+        "vendor": "EVOLUTIONREDTIGER",
+        "slug": "evolutionredtiger"
+    },
+    "evolutioinredtiger": {
+        "sheet": "Evolutioin-Red Tiger(Asia)",
+        "count": 390,
+        "vendor": "EVOLUTIOINREDTIGER",
+        "slug": "evolutioinredtiger"
+    },
+    "evolutionnlc": {
+        "sheet": "Evolution-NLC(Asia)",
+        "count": 107,
+        "vendor": "EVOLUTIONNLC",
+        "slug": "evolutionnlc"
+    },
+    "relax": {
+        "sheet": "RelaxGaming",
+        "count": 160,
+        "vendor": "RELAX",
+        "slug": "relax"
+    },
+    "skywind": {
+        "sheet": "Skywind",
+        "count": 183,
+        "vendor": "SKYWIND",
+        "slug": "skywind"
+    },
+    "playngo": {
+        "sheet": "PlaynGo",
+        "count": 516,
+        "vendor": "PNG",
+        "slug": "playngo"
+    },
+    "playson": {
+        "sheet": "Playson",
+        "count": 55,
+        "vendor": "PLAYSON",
+        "slug": "playson"
+    },
+    "evoplayaisa": {
+        "sheet": "Evoplay-aisa",
+        "count": 319,
+        "vendor": "EVOPLAYAISA",
+        "slug": "evoplayaisa"
+    },
+    "evoplay_eu": {
+        "sheet": "Evoplay-eu",
+        "count": 275,
+        "vendor": "EVOPLAY",
+        "slug": "evoplay_eu"
+    },
+    "ezugi": {
+        "sheet": "Ezugi",
+        "count": 132,
+        "vendor": "EZUGI",
+        "slug": "ezugi"
+    },
+    "ag": {
+        "sheet": "Ag",
+        "count": 115,
+        "vendor": "AG",
+        "slug": "ag"
+    },
+    "kmonegaming": {
+        "sheet": "km-oneGaming",
+        "count": 57,
+        "vendor": "KMONEGAMING",
+        "slug": "kmonegaming"
+    },
+    "ideal": {
+        "sheet": "iDeal",
+        "count": 61,
+        "vendor": "IDEAL",
+        "slug": "ideal"
+    },
+    "t1": {
+        "sheet": "T1",
+        "count": 34,
+        "vendor": "T1",
+        "slug": "t1"
+    },
+    "ongaming": {
+        "sheet": "Ongaming",
+        "count": 12,
+        "vendor": "ONGAMING",
+        "slug": "ongaming"
+    },
+    "astar": {
+        "sheet": "Astar",
+        "count": 1,
+        "vendor": "ASTAR",
+        "slug": "astar"
+    },
+    "playtech": {
+        "sheet": "Playtech(ROW)",
+        "count": 584,
+        "vendor": "PT",
+        "slug": "playtech"
+    },
+    "pgs": {
+        "sheet": "PgsGaming",
+        "count": 134,
+        "vendor": "PGS",
+        "slug": "pgs"
+    },
+    "lucksport": {
+        "sheet": "LuckSport",
+        "count": 1,
+        "vendor": "LUCKSPORT",
+        "slug": "lucksport"
+    },
+    "rich88": {
+        "sheet": "Rich88",
+        "count": 105,
+        "vendor": "RICH88",
+        "slug": "rich88"
+    },
+    "aog": {
+        "sheet": "Aog",
+        "count": 3,
+        "vendor": "AOG",
+        "slug": "aog"
+    },
+    "tf": {
+        "sheet": "TF",
+        "count": 1,
+        "vendor": "TF",
+        "slug": "tf"
+    },
+    "nextspin": {
+        "sheet": "NextSpin",
+        "count": 65,
+        "vendor": "NEXTSPIN",
+        "slug": "nextspin"
+    },
+    "idg": {
+        "sheet": "DreamGaming",
+        "count": 1,
+        "vendor": "IDG",
+        "slug": "idg"
+    },
+    "sexy": {
+        "sheet": "Sexy",
+        "count": 11,
+        "vendor": "SEXY",
+        "slug": "sexy"
+    },
+    "bti": {
+        "sheet": "Bti",
+        "count": 1,
+        "vendor": "BTI",
+        "slug": "bti"
+    },
+    "sa": {
+        "sheet": "SaGaming",
+        "count": 1,
+        "vendor": "SA",
+        "slug": "sa"
+    },
+    "mg": {
+        "sheet": "Microgaming",
+        "count": 475,
+        "vendor": "MG",
+        "slug": "mg"
+    },
+    "habanero": {
+        "sheet": "Habanero",
+        "count": 250,
+        "vendor": "HABANERO",
+        "slug": "habanero"
+    },
+    "ygr": {
+        "sheet": "YGR",
+        "count": 94,
+        "vendor": "YGR",
+        "slug": "ygr"
+    },
+    "koolbet": {
+        "sheet": "KoolBet",
+        "count": 12,
+        "vendor": "KOOLBET",
+        "slug": "koolbet"
+    },
+    "dpesports永久维护": {
+        "sheet": "DpEsports-永久维护",
+        "count": 1,
+        "vendor": "DPESPORTS永久维护",
+        "slug": "dpesports永久维护"
+    },
+    "dpgaming已下架": {
+        "sheet": "DpGaming-已下架",
+        "count": 1,
+        "vendor": "DPGAMING已下架",
+        "slug": "dpgaming已下架"
+    },
+    "dpsports永久维护": {
+        "sheet": "DpSports-永久维护",
+        "count": 1,
+        "vendor": "DPSPORTS永久维护",
+        "slug": "dpsports永久维护"
+    },
+    "bng": {
+        "sheet": "BNG",
+        "count": 143,
+        "vendor": "BNG",
+        "slug": "bng"
+    },
+    "bng3oks": {
+        "sheet": "BNG3oks",
+        "count": 183,
+        "vendor": "BNG3OKS",
+        "slug": "bng3oks"
+    },
+    "hacksaw": {
+        "sheet": "Hacksaw Asia",
+        "count": 234,
+        "vendor": "HACKSAW",
+        "slug": "hacksaw"
+    },
+    "hacksaw_latam": {
+        "sheet": "Hacksaw Latam",
+        "count": 215,
+        "vendor": "HACKSAWLATAM",
+        "slug": "hacksaw_latam"
+    },
+    "hacksaw_world": {
+        "sheet": "Hacksaw World",
+        "count": 217,
+        "vendor": "HACKSAWWORLD",
+        "slug": "hacksaw_world"
+    },
+    "turbo": {
+        "sheet": "Turbogames Asia",
+        "count": 47,
+        "vendor": "TURBO",
+        "slug": "turbo"
+    },
+    "turbo_world": {
+        "sheet": "Turbogames World",
+        "count": 47,
+        "vendor": "TURBOWORLD",
+        "slug": "turbo_world"
+    },
+    "5g": {
+        "sheet": "5G",
+        "count": 41,
+        "vendor": "5G",
+        "slug": "5g"
+    },
+    "mini": {
+        "sheet": "Mini",
+        "count": 115,
+        "vendor": "MINI",
+        "slug": "mini"
+    },
+    "epicwin": {
+        "sheet": "EpicWin",
+        "count": 69,
+        "vendor": "EPICWIN",
+        "slug": "epicwin"
+    },
+    "j2": {
+        "sheet": "2J",
+        "count": 117,
+        "vendor": "J2",
+        "slug": "j2"
+    },
+    "smartsoft": {
+        "sheet": "Smartsoft",
+        "count": 46,
+        "vendor": "SMARTSOFT",
+        "slug": "smartsoft"
+    },
+    "wonwon": {
+        "sheet": "Wonwon",
+        "count": 39,
+        "vendor": "WONWON",
+        "slug": "wonwon"
+    },
+    "btgaming": {
+        "sheet": "BtGaming",
+        "count": 107,
+        "vendor": "BTGAMING",
+        "slug": "btgaming"
+    },
+    "pix": {
+        "sheet": "Pix",
+        "count": 50,
+        "vendor": "PIX",
+        "slug": "pix"
+    },
+    "galaxsys": {
+        "sheet": "Galaxsys",
+        "count": 52,
+        "vendor": "GALAXSYS",
+        "slug": "galaxsys"
+    },
+    "inout": {
+        "sheet": "InOut",
+        "count": 54,
+        "vendor": "INOUT",
+        "slug": "inout"
+    },
+    "expanse": {
+        "sheet": "expanse",
+        "count": 54,
+        "vendor": "EXPANSE",
+        "slug": "expanse"
+    },
+    "ky": {
+        "sheet": "KY",
+        "count": 70,
+        "vendor": "KY",
+        "slug": "ky"
+    },
+    "sbo": {
+        "sheet": "SBO",
+        "count": 3,
+        "vendor": "SBO",
+        "slug": "sbo"
+    },
+    "fastspin": {
+        "sheet": "FastSpin",
+        "count": 70,
+        "vendor": "FASTSPIN",
+        "slug": "fastspin"
+    },
+    "rg": {
+        "sheet": "RG",
+        "count": 53,
+        "vendor": "RG",
+        "slug": "rg"
+    },
+    "askmeslot": {
+        "sheet": "Askmeslot",
+        "count": 71,
+        "vendor": "ASKMESLOT",
+        "slug": "askmeslot"
+    },
+    "vplus": {
+        "sheet": "Vplus",
+        "count": 145,
+        "vendor": "VPLUS",
+        "slug": "vplus"
+    },
+    "casini": {
+        "sheet": "casini",
+        "count": 13,
+        "vendor": "CASINI",
+        "slug": "casini"
+    },
+    "wintoslot1231起暂停开放": {
+        "sheet": "wintoSlot-12.31起暂停开放",
+        "count": 26,
+        "vendor": "WINTOSLOT1231起暂停开放",
+        "slug": "wintoslot1231起暂停开放"
+    },
+    "wintolive1231起暂停开放": {
+        "sheet": "wintoLive-12.31起暂停开放",
+        "count": 27,
+        "vendor": "WINTOLIVE1231起暂停开放",
+        "slug": "wintolive1231起暂停开放"
+    },
+    "hp100": {
+        "sheet": "100hp",
+        "count": 26,
+        "vendor": "HP100",
+        "slug": "hp100"
+    },
+    "mt": {
+        "sheet": "MT",
+        "count": 112,
+        "vendor": "MT",
+        "slug": "mt"
+    },
+    "ka": {
+        "sheet": "KA",
+        "count": 521,
+        "vendor": "KA",
+        "slug": "ka"
+    },
+    "casino_game": {
+        "sheet": "Casino Game",
+        "count": 9,
+        "vendor": "CASINOGAME",
+        "slug": "casino_game"
+    },
+    "crowdplay": {
+        "sheet": "crowdplay",
+        "count": 34,
+        "vendor": "CROWDPLAY",
+        "slug": "crowdplay"
+    },
+    "atm": {
+        "sheet": "ATM",
+        "count": 6,
+        "vendor": "ATM",
+        "slug": "atm"
+    },
+    "ia": {
+        "sheet": "IA",
+        "count": 1,
+        "vendor": "IA",
+        "slug": "ia"
+    },
+    "rubyplay": {
+        "sheet": "RubyPlay",
+        "count": 436,
+        "vendor": "RUBYPLAY",
+        "slug": "rubyplay"
+    },
+    "amigo": {
+        "sheet": "Amigo",
+        "count": 130,
+        "vendor": "AMIGO",
+        "slug": "amigo"
+    },
+    "evo888": {
+        "sheet": "EVO888H5",
+        "count": 148,
+        "vendor": "EVO888",
+        "slug": "evo888"
+    },
+    "topbet": {
+        "sheet": "Topbet",
+        "count": 44,
+        "vendor": "TOPBET",
+        "slug": "topbet"
+    },
+    "penguin": {
+        "sheet": "PenguinKing",
+        "count": 128,
+        "vendor": "PENGUIN",
+        "slug": "penguin"
+    },
+    "cmd": {
+        "sheet": "CMD",
+        "count": 1,
+        "vendor": "CMD",
+        "slug": "cmd"
+    },
+    "cp": {
+        "sheet": "CPGAME",
+        "count": 81,
+        "vendor": "CP",
+        "slug": "cp"
+    },
+    "gs_wow": {
+        "sheet": "GAMINGSOFT-WOW",
+        "count": 48,
+        "vendor": "GSWOW",
+        "slug": "gs_wow"
+    },
+    "gs_ai": {
+        "sheet": "GAMINGSOFT-AI LIVE CASINO",
+        "count": 8,
+        "vendor": "GSAI",
+        "slug": "gs_ai"
+    },
+    "live22": {
+        "sheet": "LIVE22",
+        "count": 62,
+        "vendor": "LIVE22",
+        "slug": "live22"
+    },
+    "endorphina": {
+        "sheet": "Endorphina",
+        "count": 179,
+        "vendor": "ENDORPHINA",
+        "slug": "endorphina"
+    },
+    "aviatrix": {
+        "sheet": "Aviatrix",
+        "count": 1,
+        "vendor": "AVIATRIX",
+        "slug": "aviatrix"
+    },
+    "creed": {
+        "sheet": "CreedRoomz",
+        "count": 135,
+        "vendor": "CREED",
+        "slug": "creed"
+    },
+    "veliplay": {
+        "sheet": "VeliPlay",
+        "count": 14,
+        "vendor": "VELIPLAY",
+        "slug": "veliplay"
+    },
+    "peaches": {
+        "sheet": "18Peaches",
+        "count": 20,
+        "vendor": "PEACHES",
+        "slug": "peaches"
+    },
+    "g9": {
+        "sheet": "9game",
+        "count": 16,
+        "vendor": "G9",
+        "slug": "g9"
+    },
+    "funky": {
+        "sheet": "Funky Games",
+        "count": 81,
+        "vendor": "FUNKY",
+        "slug": "funky"
+    },
+    "va": {
+        "sheet": "VA",
+        "count": 58,
+        "vendor": "VA",
+        "slug": "va"
+    },
+    "sg": {
+        "sheet": "SG(SpadeGaming)",
+        "count": 118,
+        "vendor": "SG",
+        "slug": "sg"
+    },
+    "atg": {
+        "sheet": "ATG",
+        "count": 8,
+        "vendor": "ATG",
+        "slug": "atg"
+    },
+    "yellowbat": {
+        "sheet": "Yellow Bat",
+        "count": 61,
+        "vendor": "YELLOWBAT",
+        "slug": "yellowbat"
+    },
+    "rectangle": {
+        "sheet": "Rectangle",
+        "count": 52,
+        "vendor": "RECTANGLE",
+        "slug": "rectangle"
+    },
+    "ws168": {
+        "sheet": "WS168",
+        "count": 66,
+        "vendor": "WS168",
+        "slug": "ws168"
+    },
+    "mac88": {
+        "sheet": "MAC88",
+        "count": 230,
+        "vendor": "MAC88",
+        "slug": "mac88"
+    },
+    "barbara": {
+        "sheet": "Barbara Bang",
+        "count": 114,
+        "vendor": "BARBARA",
+        "slug": "barbara"
+    },
+    "eeai": {
+        "sheet": "EEAi",
+        "count": 12,
+        "vendor": "EEAI",
+        "slug": "eeai"
+    },
+    "biggaming": {
+        "sheet": "BigGaming",
+        "count": 17,
+        "vendor": "BIGGAMING",
+        "slug": "biggaming"
+    },
+    "onlyplay": {
+        "sheet": "Onlyplay",
+        "count": 146,
+        "vendor": "ONLYPLAY",
+        "slug": "onlyplay"
+    },
+    "cyberbetx": {
+        "sheet": "CyberBetX",
+        "count": 14,
+        "vendor": "CYBERBETX",
+        "slug": "cyberbetx"
+    },
+    "psg": {
+        "sheet": "PSG",
+        "count": 26,
+        "vendor": "PSG",
+        "slug": "psg"
+    }
+}

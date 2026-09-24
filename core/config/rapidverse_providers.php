@@ -17,7 +17,7 @@ return array (
     'vendor' => 'SABASPORTS',
     'type' => 'sports',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   2 => 
   array (
@@ -62,7 +62,7 @@ return array (
     'vendor' => 'TADA',
     'type' => 'slot',
     'logo' => 'https://img.b6814jd.com/bjd/h5/assets/images/brand/white/provider-awcv2_tada.png?v=1&source=mcdsrc',
-    'has_games' => false,
+    'has_games' => true,
   ),
   7 => 
   array (
@@ -89,7 +89,7 @@ return array (
     'vendor' => 'PP',
     'type' => 'slot',
     'logo' => 'https://img.b6814jd.com/bjd/h5/assets/images/brand/white/provider-awcv2_pp.png?v=1&source=mcdsrc',
-    'has_games' => false,
+    'has_games' => true,
   ),
   10 => 
   array (
@@ -98,7 +98,7 @@ return array (
     'vendor' => 'PP',
     'type' => 'slot',
     'logo' => 'https://img.b6814jd.com/bjd/h5/assets/images/brand/white/provider-awcv2_pp.png?v=1&source=mcdsrc',
-    'has_games' => false,
+    'has_games' => true,
   ),
   11 => 
   array (
@@ -107,7 +107,7 @@ return array (
     'vendor' => 'PP',
     'type' => 'casino',
     'logo' => 'https://img.b6814jd.com/bjd/h5/assets/images/brand/white/provider-awcv2_pp.png?v=1&source=mcdsrc',
-    'has_games' => false,
+    'has_games' => true,
   ),
   12 => 
   array (
@@ -116,7 +116,7 @@ return array (
     'vendor' => 'PP',
     'type' => 'casino',
     'logo' => 'https://img.b6814jd.com/bjd/h5/assets/images/brand/white/provider-awcv2_pp.png?v=1&source=mcdsrc',
-    'has_games' => false,
+    'has_games' => true,
   ),
   13 => 
   array (
@@ -134,7 +134,7 @@ return array (
     'vendor' => 'WM',
     'type' => 'casino',
     'logo' => 'https://img.b6814jd.com/bjd/h5/assets/images/brand/white/provider-wm.png?v=1&source=mcdsrc',
-    'has_games' => false,
+    'has_games' => true,
   ),
   15 => 
   array (
@@ -152,7 +152,7 @@ return array (
     'vendor' => 'YEEBET',
     'type' => 'casino',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   17 => 
   array (
@@ -161,7 +161,7 @@ return array (
     'vendor' => 'FC',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   18 => 
   array (
@@ -170,7 +170,7 @@ return array (
     'vendor' => 'EAZY',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   19 => 
   array (
@@ -188,7 +188,7 @@ return array (
     'vendor' => 'GAMEART',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   21 => 
   array (
@@ -197,7 +197,7 @@ return array (
     'vendor' => 'BGAMING',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   22 => 
   array (
@@ -224,7 +224,7 @@ return array (
     'vendor' => 'RELAX',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   25 => 
   array (
@@ -233,7 +233,7 @@ return array (
     'vendor' => 'SKYWIND',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   26 => 
   array (
@@ -242,7 +242,7 @@ return array (
     'vendor' => 'PT',
     'type' => 'casino',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   27 => 
   array (
@@ -251,7 +251,7 @@ return array (
     'vendor' => 'PNG',
     'type' => 'slot',
     'logo' => 'https://img.b6814jd.com/bjd/h5/assets/images/brand/white/provider-playngo.png?v=1&source=mcdsrc',
-    'has_games' => false,
+    'has_games' => true,
   ),
   28 => 
   array (
@@ -269,7 +269,7 @@ return array (
     'vendor' => 'PLAYSON',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   30 => 
   array (
@@ -287,7 +287,7 @@ return array (
     'vendor' => 'EVOPLAY',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   32 => 
   array (
@@ -296,7 +296,7 @@ return array (
     'vendor' => 'EZUGI',
     'type' => 'casino',
     'logo' => 'https://img.b6814jd.com/bjd/h5/assets/images/brand/white/provider-ezugi.png?v=1&source=mcdsrc',
-    'has_games' => false,
+    'has_games' => true,
   ),
   33 => 
   array (
@@ -314,7 +314,7 @@ return array (
     'vendor' => 'IDEAL',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   35 => 
   array (
@@ -323,7 +323,7 @@ return array (
     'vendor' => 'T1',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   36 => 
   array (
@@ -341,7 +341,7 @@ return array (
     'vendor' => 'ONGAMING',
     'type' => 'casino',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   38 => 
   array (
@@ -350,7 +350,7 @@ return array (
     'vendor' => 'ASTAR',
     'type' => 'casino',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   39 => 
   array (
@@ -368,7 +368,7 @@ return array (
     'vendor' => 'AOG',
     'type' => 'cockfight',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   41 => 
   array (
@@ -377,7 +377,7 @@ return array (
     'vendor' => 'PGS',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   42 => 
   array (
@@ -386,7 +386,7 @@ return array (
     'vendor' => 'RICH88',
     'type' => 'slot',
     'logo' => 'https://img.b6814jd.com/bjd/h5/assets/images/brand/white/provider-rich88.png?v=1&source=mcdsrc',
-    'has_games' => false,
+    'has_games' => true,
   ),
   43 => 
   array (
@@ -404,7 +404,7 @@ return array (
     'vendor' => 'NEXTSPIN',
     'type' => 'slot',
     'logo' => 'https://img.b6814jd.com/bjd/h5/assets/images/brand/white/provider-awcv2_nextspin.png?v=1&source=mcdsrc',
-    'has_games' => false,
+    'has_games' => true,
   ),
   45 => 
   array (
@@ -422,7 +422,7 @@ return array (
     'vendor' => 'SEXY',
     'type' => 'casino',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   47 => 
   array (
@@ -440,7 +440,7 @@ return array (
     'vendor' => 'SA',
     'type' => 'casino',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   49 => 
   array (
@@ -458,7 +458,7 @@ return array (
     'vendor' => 'HABANERO',
     'type' => 'slot',
     'logo' => 'https://img.b6814jd.com/bjd/h5/assets/images/brand/white/provider-awcv2_habanero.png?v=1&source=mcdsrc',
-    'has_games' => false,
+    'has_games' => true,
   ),
   51 => 
   array (
@@ -467,7 +467,7 @@ return array (
     'vendor' => 'YGR',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   52 => 
   array (
@@ -476,7 +476,7 @@ return array (
     'vendor' => 'KOOLBET',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   53 => 
   array (
@@ -485,7 +485,7 @@ return array (
     'vendor' => 'BNG',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   54 => 
   array (
@@ -503,7 +503,7 @@ return array (
     'vendor' => 'HACKSAW',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   56 => 
   array (
@@ -512,7 +512,7 @@ return array (
     'vendor' => 'HACKSAWLATAM',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   57 => 
   array (
@@ -521,7 +521,7 @@ return array (
     'vendor' => 'HACKSAWWORLD',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   58 => 
   array (
@@ -530,7 +530,7 @@ return array (
     'vendor' => 'TURBO',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   59 => 
   array (
@@ -539,7 +539,7 @@ return array (
     'vendor' => 'TURBOWORLD',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   60 => 
   array (
@@ -566,7 +566,7 @@ return array (
     'vendor' => 'MINI',
     'type' => 'table',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   63 => 
   array (
@@ -575,7 +575,7 @@ return array (
     'vendor' => 'J2',
     'type' => 'poker',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   64 => 
   array (
@@ -584,7 +584,7 @@ return array (
     'vendor' => 'EPICWIN',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   65 => 
   array (
@@ -593,7 +593,7 @@ return array (
     'vendor' => 'SMARTSOFT',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   66 => 
   array (
@@ -602,7 +602,7 @@ return array (
     'vendor' => 'WONWON',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   67 => 
   array (
@@ -611,7 +611,7 @@ return array (
     'vendor' => 'BTGAMING',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   68 => 
   array (
@@ -629,7 +629,7 @@ return array (
     'vendor' => 'GALAXSYS',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   70 => 
   array (
@@ -638,7 +638,7 @@ return array (
     'vendor' => 'INOUT',
     'type' => 'table',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   71 => 
   array (
@@ -647,7 +647,7 @@ return array (
     'vendor' => 'EXPANSE',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   72 => 
   array (
@@ -656,7 +656,7 @@ return array (
     'vendor' => 'KY',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   73 => 
   array (
@@ -665,7 +665,7 @@ return array (
     'vendor' => 'SBO',
     'type' => 'sports',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   74 => 
   array (
@@ -674,7 +674,7 @@ return array (
     'vendor' => 'FASTSPIN',
     'type' => 'slot',
     'logo' => 'https://img.b6814jd.com/bjd/h5/assets/images/brand/white/provider-awcv2_fastspin.png?v=1&source=mcdsrc',
-    'has_games' => false,
+    'has_games' => true,
   ),
   75 => 
   array (
@@ -683,7 +683,7 @@ return array (
     'vendor' => 'IA',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   76 => 
   array (
@@ -692,7 +692,7 @@ return array (
     'vendor' => 'RG',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   77 => 
   array (
@@ -701,7 +701,7 @@ return array (
     'vendor' => 'ASKMESLOT',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   78 => 
   array (
@@ -710,7 +710,7 @@ return array (
     'vendor' => 'VPLUS',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   79 => 
   array (
@@ -737,7 +737,7 @@ return array (
     'vendor' => 'CASINI',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   82 => 
   array (
@@ -746,7 +746,7 @@ return array (
     'vendor' => 'HP100',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   83 => 
   array (
@@ -755,7 +755,7 @@ return array (
     'vendor' => 'MT',
     'type' => 'poker',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   84 => 
   array (
@@ -764,7 +764,7 @@ return array (
     'vendor' => 'KA',
     'type' => 'slot',
     'logo' => 'https://img.b6814jd.com/bjd/h5/assets/images/brand/white/provider-ka.png?v=1&source=mcdsrc',
-    'has_games' => false,
+    'has_games' => true,
   ),
   85 => 
   array (
@@ -773,7 +773,7 @@ return array (
     'vendor' => 'CASINOGAME',
     'type' => 'casino',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   86 => 
   array (
@@ -782,7 +782,7 @@ return array (
     'vendor' => 'CROWDPLAY',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   87 => 
   array (
@@ -791,7 +791,7 @@ return array (
     'vendor' => 'RUBYPLAY',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   88 => 
   array (
@@ -800,7 +800,7 @@ return array (
     'vendor' => 'AMIGO',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   89 => 
   array (
@@ -809,7 +809,7 @@ return array (
     'vendor' => 'ATM',
     'type' => 'table',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   90 => 
   array (
@@ -818,7 +818,7 @@ return array (
     'vendor' => 'EVO888',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   91 => 
   array (
@@ -827,7 +827,7 @@ return array (
     'vendor' => 'TOPBET',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   92 => 
   array (
@@ -836,7 +836,7 @@ return array (
     'vendor' => 'PENGUIN',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   93 => 
   array (
@@ -854,7 +854,7 @@ return array (
     'vendor' => 'CP',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   95 => 
   array (
@@ -863,7 +863,7 @@ return array (
     'vendor' => 'GSWOW',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   96 => 
   array (
@@ -872,7 +872,7 @@ return array (
     'vendor' => 'GSAI',
     'type' => 'table',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   97 => 
   array (
@@ -881,7 +881,7 @@ return array (
     'vendor' => 'LIVE22',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   98 => 
   array (
@@ -890,7 +890,7 @@ return array (
     'vendor' => 'ENDORPHINA',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   99 => 
   array (
@@ -899,7 +899,7 @@ return array (
     'vendor' => 'AVIATRIX',
     'type' => 'slot',
     'logo' => 'https://img.b6814jd.com/bjd/h5/assets/images/brand/white/provider-aviatrix.png?v=1&source=mcdsrc',
-    'has_games' => false,
+    'has_games' => true,
   ),
   100 => 
   array (
@@ -908,7 +908,7 @@ return array (
     'vendor' => 'CREED',
     'type' => 'casino',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   101 => 
   array (
@@ -917,7 +917,7 @@ return array (
     'vendor' => 'VELIPLAY',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   102 => 
   array (
@@ -926,7 +926,7 @@ return array (
     'vendor' => 'PEACHES',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   103 => 
   array (
@@ -944,7 +944,7 @@ return array (
     'vendor' => 'FUNKY',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   105 => 
   array (
@@ -953,7 +953,7 @@ return array (
     'vendor' => 'VA',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   106 => 
   array (
@@ -962,7 +962,7 @@ return array (
     'vendor' => 'SG',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   107 => 
   array (
@@ -971,7 +971,7 @@ return array (
     'vendor' => 'ATG',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   108 => 
   array (
@@ -980,7 +980,7 @@ return array (
     'vendor' => 'YELLOWBAT',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   109 => 
   array (
@@ -989,7 +989,7 @@ return array (
     'vendor' => 'RECTANGLE',
     'type' => 'slot',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   110 => 
   array (
@@ -998,7 +998,7 @@ return array (
     'vendor' => 'WS168',
     'type' => 'table',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   111 => 
   array (
@@ -1007,7 +1007,7 @@ return array (
     'vendor' => 'MAC88',
     'type' => 'casino',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   112 => 
   array (
@@ -1016,7 +1016,7 @@ return array (
     'vendor' => 'BIGGAMING',
     'type' => 'casino',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   113 => 
   array (
@@ -1025,7 +1025,7 @@ return array (
     'vendor' => 'ONLYPLAY',
     'type' => 'crash',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   114 => 
   array (
@@ -1034,7 +1034,7 @@ return array (
     'vendor' => 'CYBERBETX',
     'type' => 'casino',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   115 => 
   array (
@@ -1043,7 +1043,7 @@ return array (
     'vendor' => 'PSG',
     'type' => 'crash',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   116 => 
   array (
@@ -1052,7 +1052,7 @@ return array (
     'vendor' => 'EEAI',
     'type' => 'casino',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
   117 => 
   array (
@@ -1061,6 +1061,6 @@ return array (
     'vendor' => 'BARBARA',
     'type' => 'table',
     'logo' => '',
-    'has_games' => false,
+    'has_games' => true,
   ),
 );
