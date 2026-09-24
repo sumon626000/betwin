@@ -497,7 +497,7 @@ header.header,
   color: #172033 !important;
 }
 
-/* REDJILI9876.zip game icon size: always 3 big squares (not 6 tiny) */
+/* Icon size only (ZIP mobile tiles) — page layout width untouched */
 .game-grid {
   display: grid !important;
   grid-template-columns: repeat(3, 1fr) !important;
@@ -509,11 +509,6 @@ header.header,
   max-width: none !important;
   margin: 0 !important;
   height: auto !important;
-}
-.custom-home-wrapper {
-  max-width: 480px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
 }
 
 /* Fill game thumbnails — no white empty half (Aviator etc.) */
