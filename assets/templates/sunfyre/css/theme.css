@@ -497,11 +497,21 @@ header.header,
   color: #172033 !important;
 }
 
-/* Icon size only (ZIP mobile tiles) — page layout width untouched */
+/* Game tiles — match ZIP: 3 / 4 / 6 cols by viewport */
 .game-grid {
   display: grid !important;
   grid-template-columns: repeat(3, 1fr) !important;
   gap: 8px !important;
+}
+@media (min-width: 600px) {
+  .game-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+}
+@media (min-width: 900px) {
+  .game-grid {
+    grid-template-columns: repeat(6, 1fr) !important;
+  }
 }
 .game-grid .swiper-slide,
 .game-grid .game-item-box {

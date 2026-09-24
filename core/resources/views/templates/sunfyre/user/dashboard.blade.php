@@ -104,8 +104,12 @@
 
     /* â”€â”€â”€ GAME GRID â”€â”€â”€ */
     .games-section { padding: 0 10px; margin-bottom: 6px; }
-    /* ZIP mobile icon size (3 big tiles) — page layout unchanged */
+    /* Match ZIP icon grid */
     .game-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    @media (min-width: 600px) { .game-grid { grid-template-columns: repeat(4, 1fr); } }
+    @media (min-width: 900px) {
+        .game-grid { grid-template-columns: repeat(6, 1fr); }
+    }
     .game-grid .swiper-slide,
     .game-grid .game-item-box {
         width: 100% !important;
