@@ -105,25 +105,27 @@
 
     /* â”€â”€â”€ GAME GRID â”€â”€â”€ */
     .games-section { padding: 0 10px; margin-bottom: 6px; }
-    /* 3-col big tiles (mobile casino size) — was 6-col and looked tiny */
-    .game-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-    @media (min-width: 900px) {
-        .game-grid { grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    /* Same as REDJILI9876.zip mobile: 3 big icons per row (never 6 tiny) */
+    .game-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .game-grid .swiper-slide,
+    .game-grid .game-item-box {
+        width: 100% !important;
+        max-width: none !important;
+        margin: 0 !important;
+        height: auto !important;
     }
 
     .game-card {
-        position: relative; border-radius: 12px; overflow: hidden; background: #ffffff;
+        position: relative; border-radius: 10px; overflow: hidden; background: #ffffff;
         border: 1px solid #e8f0fa; transition: all 0.2s; text-decoration: none; display: block;
         box-shadow: 0 4px 14px rgba(18,59,102,0.08);
     }
     .game-card:active { transform: scale(0.96); }
-    .game-card-img {
-        display: block; width: 100%; aspect-ratio: 1 / 1; overflow: hidden;
-        background: #111827; position: relative;
-    }
+    /* ZIP exact: square icon fills the card */
+    .game-card-img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; overflow: hidden; }
     .game-card-img img {
         width: 100%; height: 100%; object-fit: cover; object-position: center;
-        display: block; vertical-align: top;
+        display: block;
     }
 
     .game-card-fav {

@@ -497,23 +497,29 @@ header.header,
   color: #172033 !important;
 }
 
-/* Big game icons: 3 per row on phone (not 6 tiny tiles) */
+/* REDJILI9876.zip game icon size: always 3 big squares (not 6 tiny) */
 .game-grid {
   display: grid !important;
   grid-template-columns: repeat(3, 1fr) !important;
-  gap: 10px !important;
+  gap: 8px !important;
 }
-@media (min-width: 900px) {
-  .game-grid {
-    grid-template-columns: repeat(4, 1fr) !important;
-    gap: 12px !important;
-  }
+.game-grid .swiper-slide,
+.game-grid .game-item-box {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  height: auto !important;
+}
+.custom-home-wrapper {
+  max-width: 480px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 /* Fill game thumbnails — no white empty half (Aviator etc.) */
 .game-card {
   overflow: hidden !important;
-  border-radius: 12px !important;
+  border-radius: 10px !important;
 }
 
 .game-card-img,
