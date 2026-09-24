@@ -756,6 +756,18 @@
                 showProviderGridByType('poker');
                 return;
             }
+            if (category === 'sports') {
+                setProviderTitle('sports');
+                // Prefer lobby tiles (unique Game UIDs); also keep sports section visible
+                let target = document.querySelector('.section-container[data-provider="sports"]');
+                if (target) {
+                    target.style.display = 'block';
+                    target.classList.add('show-anim');
+                    document.querySelector('.main-footer-section').style.display = 'block';
+                    document.querySelector('.game-center').style.display = 'block';
+                }
+                return;
+            }
 
             let target = document.querySelector('.section-container[data-provider="' + category + '"]');
             if (target) {
