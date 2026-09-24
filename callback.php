@@ -21,6 +21,13 @@ function cb_log(string $msg, $ctx = null): void
     @file_put_contents($dir . '/rapidverse_callback.log', $line . "\n", FILE_APPEND);
 }
 
+function cb_fail(string $msg, $ctx = null): void
+{
+    cb_log($msg, $ctx);
+    echo json_encode(['code' => 1, 'msg' => $msg]);
+    exit;
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     echo json_encode(['code' => 0, 'msg' => 'callback alive']);
     exit;
@@ -28,9 +35,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
 $raw = file_get_contents('php://input');
 $data = json_decode($raw ?: 'null', true);
-if (!is_array($data)) {
-    cb_log('bad_json', $raw);
-    echo json_encode(['code' => 1]);
+
+// Panel / URL probe often POSTs empty body — treat as health check (not a bet).
+if (!is_array($data) || $data === []) {
+    cb_log('probe', $raw === false || $raw === '' ? '(empty)' : $raw);
+    echo json_encode(['code' => 0, 'msg' => 'callback alive']);
     exit;
 }
 
@@ -67,7 +76,7 @@ if (is_readable($envPath)) {
 }
 
 // Original RapidVerse fields (+ camelCase fallbacks)
-$userRaw = $data['user_id'] ?? $data['userId'] ?? $data['member_account'] ?? 0;
+$userRaw = $data['user_id'] ?? $data['userId'] ?? $data['member_account'] ?? $data['memberAccount'] ?? $data['username'] ?? 0;
 $userRaw = trim((string) $userRaw);
 if ($apiPrefix !== '' && str_starts_with($userRaw, $apiPrefix)) {
     $userRaw = substr($userRaw, strlen($apiPrefix));
@@ -81,30 +90,33 @@ if ($gameName === '') {
 }
 $gameName = substr($gameName, 0, 40);
 
-$bet = (float) ($data['bet_amount'] ?? $data['betAmount'] ?? $data['bet'] ?? 0);
-$win = (float) ($data['win_amount'] ?? $data['winAmount'] ?? $data['win'] ?? 0);
-$serial = trim((string) ($data['serial_number'] ?? $data['serialNumber'] ?? $data['transaction_id'] ?? $data['transactionId'] ?? ''));
+$bet = (float) ($data['bet_amount'] ?? $data['betAmount'] ?? $data['bet'] ?? $data['amount'] ?? 0);
+$win = (float) ($data['win_amount'] ?? $data['winAmount'] ?? $data['win'] ?? $data['payout'] ?? 0);
+$serial = trim((string) ($data['serial_number'] ?? $data['serialNumber'] ?? $data['transaction_id'] ?? $data['transactionId'] ?? $data['txnId'] ?? ''));
 $winStat = $win > $bet ? 1 : 0;
 
 if ($userId <= 0) {
-    cb_log('bad_user', $data);
-    echo json_encode(['code' => 1]);
-    exit;
+    cb_fail('bad_user', $data);
 }
 
 // Balance-only inquiry (optional)
-$action = strtolower((string) ($data['action'] ?? $data['type'] ?? ''));
-if (in_array($action, ['balance', 'getbalance', 'get_balance'], true) || ($serial === '' && $bet == 0.0 && $win == 0.0 && isset($data['action']))) {
+$action = strtolower((string) ($data['action'] ?? $data['type'] ?? $data['method'] ?? ''));
+$isBalanceOnly = in_array($action, ['balance', 'getbalance', 'get_balance', 'getuserbalance'], true)
+    || ($serial === '' && $bet == 0.0 && $win == 0.0 && (isset($data['action']) || isset($data['type']) || isset($data['method'])));
+
+if ($isBalanceOnly) {
     $conn = new mysqli($db['host'], $db['user'], $db['pass'], $db['name']);
     if ($conn->connect_error) {
-        echo json_encode(['code' => 1]);
-        exit;
+        cb_fail('db_error', $conn->connect_error);
     }
     $conn->set_charset('utf8mb4');
     $q = $conn->prepare('SELECT balance FROM users WHERE id=? LIMIT 1');
     $q->bind_param('i', $userId);
     $q->execute();
     $row = $q->get_result()->fetch_assoc();
+    if (!$row) {
+        cb_fail('user_missing', $userId);
+    }
     $bal = round((float) ($row['balance'] ?? 0), 2);
     echo json_encode(['code' => 0, 'balance' => $bal, 'userBalance' => $bal]);
     exit;
@@ -117,9 +129,7 @@ $serial = substr($serial, 0, 100);
 
 $conn = new mysqli($db['host'], $db['user'], $db['pass'], $db['name']);
 if ($conn->connect_error) {
-    cb_log('db_error', $conn->connect_error);
-    echo json_encode(['code' => 1]);
-    exit;
+    cb_fail('db_error', $conn->connect_error);
 }
 $conn->set_charset('utf8mb4');
 
@@ -141,9 +151,7 @@ $q->bind_param('i', $userId);
 $q->execute();
 $userData = $q->get_result()->fetch_assoc();
 if (!$userData) {
-    cb_log('user_missing', $userId);
-    echo json_encode(['code' => 1]);
-    exit;
+    cb_fail('user_missing', $userId);
 }
 
 $bal = (float) $userData['balance'];
@@ -174,4 +182,4 @@ $l->bind_param('iisddsi', $userId, $gameId, $gameName, $bet, $win, $serial, $win
 $l->execute();
 
 cb_log('ok', ['user' => $userId, 'bet' => $bet, 'win' => $win, 'bal' => $newBal, 'serial' => $serial]);
-echo json_encode(['code' => 0, 'balance' => $newBal]);
+echo json_encode(['code' => 0, 'balance' => $newBal, 'userBalance' => $newBal]);
