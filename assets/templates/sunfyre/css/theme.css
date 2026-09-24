@@ -1714,3 +1714,21 @@ body {
   color: #123b66;
 }
 .site-footer__partners > img { display: none !important; }
+
+/* Sports provider real logos — fit inside tiles */
+.sports-prov-card .sports-prov-logo {
+  background: linear-gradient(160deg, #0b1f36 0%, #123b66 55%, #0f2d4a 100%) !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.sports-prov-card .sports-prov-logo img {
+  width: 78% !important;
+  height: 78% !important;
+  object-fit: contain !important;
+  aspect-ratio: auto !important;
+  background: transparent !important;
+  border-radius: 8px;
+  padding: 0 !important;
+}

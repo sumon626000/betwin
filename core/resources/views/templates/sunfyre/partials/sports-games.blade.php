@@ -1,59 +1,60 @@
 ﻿@php
-// Unique RapidVerse Game UIDs from provider sheet (each sports vendor has its own hash).
+// Unique RapidVerse Game UIDs — real company logos (local assets).
+$spBase = asset('assets/images/sports-providers');
 $sportsGames = [
     [
         'id' => '92b24e4c25107367a80e0fe1a97c24e4',
         'name' => 'Lucky Sport',
         'provider' => 'luckysport',
-        'img' => 'https://img.b6814jd.com/bjd/h5/assets/images/brand/white/provider-awcv2_fb.png?v=1&source=mcdsrc',
+        'img' => $spBase . '/lucky.svg',
     ],
     [
         'id' => '08ced9dd788aed11ff3c7f387ae0f063',
         'name' => 'SABA Sports',
         'provider' => 'sabasports',
-        'img' => 'https://img.b6814jd.com/bjd/h5/assets/images/brand/white/provider-saba.png?v=1&source=mcdsrc',
+        'img' => $spBase . '/saba.png',
     ],
     [
         'id' => '4d31f1186a81e208c003a7e37411ce35',
         'name' => 'BTI Sports',
         'provider' => 'bti',
-        'img' => 'https://img.b6814jd.com/bjd/h5/assets/images/brand/white/provider-awcv2_bti.png?v=1&source=mcdsrc',
+        'img' => $spBase . '/bti.svg',
     ],
     [
         'id' => '1f7fbf84bf1bcc08c3a7ea27db75f366',
         'name' => 'CMD Sports',
         'provider' => 'cmd',
-        'img' => 'https://img.b6814jd.com/bjd/h5/assets/images/brand/white/provider-awcv2_cmd.png?v=1&source=mcdsrc',
+        'img' => $spBase . '/cmd.png',
     ],
     [
         'id' => 'c4b2813f6bbc5abf502ddfb857e604eb',
         'name' => 'United Gaming',
         'provider' => 'ug',
-        'img' => 'https://img.b6814jd.com/bjd/h5/assets/images/brand/white/provider-awcv2_im.png?v=1&source=mcdsrc',
+        'img' => $spBase . '/ug-logo.png',
     ],
     [
         'id' => '341827d4370bb198b18364e2d75e6916',
         'name' => 'SBO',
         'provider' => 'sbo',
-        'img' => 'https://img.b6814jd.com/bjd/h5/assets/images/brand/white/provider-saba.png?v=1&source=mcdsrc',
+        'img' => $spBase . '/sbo.svg',
     ],
     [
         'id' => '4ee8e0051a035b463b47c3c473ce317d',
         'name' => 'TF Sports',
         'provider' => 'tf',
-        'img' => '',
+        'img' => $spBase . '/tf.svg',
     ],
     [
         'id' => '23c2dca76f87d7b7f239833060c8751e',
         'name' => 'DP Sports',
         'provider' => 'dpsports',
-        'img' => '',
+        'img' => $spBase . '/dps.svg',
     ],
     [
         'id' => 'e130116fdc9bcde2dbb31735b6c365d6',
         'name' => 'DP Esports',
         'provider' => 'dpesports',
-        'img' => '',
+        'img' => $spBase . '/dpe.svg',
     ],
 ];
 
@@ -69,11 +70,11 @@ $fallbackSvg = function (string $label, string $bg1 = '#123b66', string $bg2 = '
     @php
         $img = $game['img'] !== '' ? $game['img'] : $fallbackSvg($game['name']);
     @endphp
-    <div class="game-card" data-category="sports">
+    <div class="game-card sports-prov-card" data-category="sports">
         @auth
-            <a href="{{ url('user/jili/launch?game_code='.$game['id'].'&provider='.$game['provider']) }}" class="game-card-img" title="{{ $game['name'] }}">
+            <a href="{{ url('user/jili/launch?game_code='.$game['id'].'&provider='.$game['provider']) }}" class="game-card-img sports-prov-logo" title="{{ $game['name'] }}">
         @else
-            <a href="{{ route('user.login') }}" class="game-card-img" title="{{ $game['name'] }}">
+            <a href="{{ route('user.login') }}" class="game-card-img sports-prov-logo" title="{{ $game['name'] }}">
         @endauth
                 <img src="{{ $i < ($homeEagerCount ?? 0) ? $img : '' }}" @if($i >= ($homeEagerCount ?? 0)) data-src="{{ $img }}" @endif alt="{{ $game['name'] }}" loading="{{ $i < ($homeEagerCount ?? 0) ? 'eager' : 'lazy' }}" @if($i < 3) fetchpriority="high" @endif decoding="async" referrerpolicy="no-referrer" width="120" height="120"
                      onerror="this.onerror=null;this.src='{{ $fallbackSvg($game['name']) }}';">
