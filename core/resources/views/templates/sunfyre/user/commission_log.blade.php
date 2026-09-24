@@ -338,7 +338,7 @@
                 @php $totalCommission += $log->amount; @endphp
                 <div class="data-row">
                     <span class="date-text">{{ showDateTime($log->created_at, 'Y-m-d') }}</span>
-                    <span class="amount-text">à§³ {{ number_format($log->amount, 4) }}</span>
+                    <span class="amount-text">৳ {{ number_format($log->amount, 4) }}</span>
                 </div>
             @empty
                 <div class="no-data" style="min-height: 30vh; padding: 40px 0;">
@@ -352,7 +352,7 @@
 
         <!-- Claim Section -->
         <div style="padding: 20px; background: #f9fafb; border-top: 1px solid #e5e7eb;">
-            <p class="min-claim-text">Minimum claim amount: à§³ 1.00</p>
+            <p class="min-claim-text">Minimum claim amount: ৳ 1.00</p>
             <button class="btn-claim" {{ $totalCommission >= 1 ? '' : 'disabled' }} onclick="claimCommission()">
                 Claim Commission Now
             </button>

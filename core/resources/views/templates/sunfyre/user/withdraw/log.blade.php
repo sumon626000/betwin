@@ -424,7 +424,7 @@
             @endphp
             <div class="data-row" onclick="showDetails({{ json_encode($details) }}, '{{ $withdraw->status == 3 ? $withdraw->admin_feedback : '' }}', '{{ __($methodName) }}', '{{ showDateTime($withdraw->created_at, 'd M Y, h:i A') }}', '{{ $withdraw->trx }}', '{{ number_format($withdraw->amount, 0) }}', '{{ $statusText }}')">
                 <div style="font-weight:700; font-size:11px;">{{ __($methodName) }}</div>
-                <div style="font-weight:700;">à§³{{ number_format($withdraw->amount, 0) }}</div>
+                <div style="font-weight:700;">৳{{ number_format($withdraw->amount, 0) }}</div>
                 <div>
                     <span class="{{ $statusClass }}">{{ $statusText }}</span>
                 </div>
@@ -488,7 +488,7 @@
 <script>
     function showDetails(details, feedback, method, date, trx, amount, status) {
         document.getElementById('modalMethod').textContent = method;
-        document.getElementById('modalAmount').textContent = 'à§³' + amount;
+        document.getElementById('modalAmount').textContent = '৳' + amount;
         document.getElementById('modalTrx').textContent = trx;
         document.getElementById('modalDate').textContent = date;
         document.getElementById('modalStatus').textContent = status;

@@ -369,7 +369,7 @@
                 </div>
                 <div style="text-align: right; flex-shrink: 0; margin-left: 12px;">
                     <div class="{{ $isCredit ? 'amount-positive' : 'amount-negative' }}" style="font-size: 15px; font-weight: 800;">
-                        {{ $isCredit ? '+' : '-' }}à§³{{ number_format($trx->amount, 0) }}
+                        {{ $isCredit ? '+' : '-' }}৳{{ number_format($trx->amount, 0) }}
                     </div>
                     <span class="{{ $isCredit ? 'badge-win' : 'badge-loss' }}">
                         {{ __(keyToTitle($trx->remark)) }}
@@ -410,7 +410,7 @@
                     </div>
                     <div style="text-align: right; flex-shrink: 0; margin-left: 12px;">
                         <div class="amount-positive" style="font-size: 15px; font-weight: 800;">
-                            +à§³{{ number_format($trx->amount, 0) }}
+                            +৳{{ number_format($trx->amount, 0) }}
                         </div>
                         <span class="badge-win">Deposit</span>
                     </div>
@@ -451,7 +451,7 @@
                     </div>
                     <div style="text-align: right; flex-shrink: 0; margin-left: 12px;">
                         <div class="amount-negative" style="font-size: 15px; font-weight: 800;">
-                            -à§³{{ number_format($trx->amount, 0) }}
+                            -৳{{ number_format($trx->amount, 0) }}
                         </div>
                         <span class="badge-loss">Withdraw</span>
                     </div>

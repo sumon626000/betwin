@@ -455,7 +455,7 @@
             @endphp
             <div class="data-row">
                 <div style="font-weight:700; font-size:11px;">{{ __($gatewayName) }}</div>
-                <div style="font-weight:700;">à§³{{ number_format($deposit->amount, 0) }}</div>
+                <div style="font-weight:700;">৳{{ number_format($deposit->amount, 0) }}</div>
                 <div>
                     <span class="{{ $statusClass }}">{{ $statusText }}</span>
                 </div>

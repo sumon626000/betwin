@@ -502,11 +502,11 @@
                 </div>
                 <div class="stat-item">
                     <h4>Today's Rewards</h4>
-                    <p>à§³ {{ number_format($todayRewards, 0) }}</p>
+                    <p>৳ {{ number_format($todayRewards, 0) }}</p>
                 </div>
                 <div class="stat-item">
                     <h4>Yesterday's Rewards</h4>
-                    <p>à§³ {{ number_format($yesterdayRewards, 0) }}</p>
+                    <p>৳ {{ number_format($yesterdayRewards, 0) }}</p>
                 </div>
             </div>
         </div>
@@ -515,7 +515,7 @@
         <div class="white-card">
             <div class="section-title">Available Cash Rewards</div>
             <div class="claim-row">
-                <span class="claim-amount">à§³ {{ number_format($totalRewards, 0) }}</span>
+                <span class="claim-amount">৳ {{ number_format($totalRewards, 0) }}</span>
                 <button class="claim-btn" onclick="claimReward()">Claim Now</button>
             </div>
         </div>

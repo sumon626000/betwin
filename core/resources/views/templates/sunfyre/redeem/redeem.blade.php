@@ -386,7 +386,7 @@
                 </div>
                 <p style="color:#6b7280; font-size:12px; font-weight:600;">@lang('Nickname:') {{ auth()->user()->username }}</p>
                 <div style="display: flex; align-items: center; gap: 4px; color:#333; font-weight:900; margin-top: 4px;">
-                    <span style="font-size:18px;">à§³ {{ number_format(auth()->user()->balance, 2) }}</span>
+                    <span style="font-size:18px;">৳ {{ number_format(auth()->user()->balance, 2) }}</span>
                     <i class="fas fa-sync-alt" style="color:#9ca3af; font-size:12px; margin-left:8px; cursor:pointer;" onclick="location.reload()"></i>
                 </div>
             </div>
@@ -504,7 +504,7 @@
     function getNewMessage() {
         const num = prefixes[Math.floor(Math.random() * prefixes.length)] + "******" + Math.floor(10 + Math.random() * 90);
         const amt = amounts[Math.floor(Math.random() * amounts.length)];
-        return `ðŸŽ‰ User ${num} successfully redeemed à§³${amt}`;
+        return `ðŸŽ‰ User ${num} successfully redeemed ৳${amt}`;
     }
 
     function rotateMessage() {

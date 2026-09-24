@@ -499,7 +499,7 @@
             <div class="data-row">
                 <div style="font-weight:700; font-size:11px;">{{ $provider }}</div>
                 <div style="font-size:11px; color:#4b5563;">{{ __($displayName) }}</div>
-                <div style="font-weight:700;">à§³{{ number_format($log->invest, 2) }}</div>
+                <div style="font-weight:700;">৳{{ number_format($log->invest, 2) }}</div>
                 <div>
                     <span class="{{ $isWin ? 'profit-win' : 'profit-loss' }}">
                         {{ $isWin ? '+' : '' }}{{ number_format($profitLoss, 2) }}
@@ -529,19 +529,19 @@
 <div class="fixed-bottom-summary" style="bottom: 70px;">
     <div class="summary-inner">
         <div class="summary-item">
-            <div class="summary-value green">à§³{{ number_format($widget['bet_amount'] ?? 0, 2) }}</div>
+            <div class="summary-value green">৳{{ number_format($widget['bet_amount'] ?? 0, 2) }}</div>
             <div class="summary-label">Bet Amount</div>
         </div>
         <div class="summary-item">
-            <div class="summary-value green">à§³{{ number_format($widget['valid_bet'] ?? 0, 2) }}</div>
+            <div class="summary-value green">৳{{ number_format($widget['valid_bet'] ?? 0, 2) }}</div>
             <div class="summary-label">Valid Bet</div>
         </div>
         <div class="summary-item">
-            <div class="summary-value green">à§³{{ number_format($widget['winnings'] ?? 0, 2) }}</div>
+            <div class="summary-value green">৳{{ number_format($widget['winnings'] ?? 0, 2) }}</div>
             <div class="summary-label">Winnings</div>
         </div>
         <div class="summary-item">
-            <div class="summary-value red">à§³{{ number_format($widget['profit_loss'] ?? 0, 2) }}</div>
+            <div class="summary-value red">৳{{ number_format($widget['profit_loss'] ?? 0, 2) }}</div>
             <div class="summary-label">Profit/Loss</div>
         </div>
     </div>
