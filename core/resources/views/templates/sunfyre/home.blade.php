@@ -105,10 +105,10 @@
 
     /* â”€â”€â”€ GAME GRID â”€â”€â”€ */
     .games-section { padding: 0 10px; margin-bottom: 6px; }
-    .game-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-    @media (min-width: 600px) { .game-grid { grid-template-columns: repeat(4, 1fr); } }
+    /* 3-col big tiles (mobile casino size) — was 6-col and looked tiny */
+    .game-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
     @media (min-width: 900px) {
-        .game-grid { grid-template-columns: repeat(6, 1fr); }
+        .game-grid { grid-template-columns: repeat(4, 1fr); gap: 12px; }
     }
 
     .game-card {

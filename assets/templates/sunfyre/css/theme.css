@@ -497,6 +497,19 @@ header.header,
   color: #172033 !important;
 }
 
+/* Big game icons: 3 per row on phone (not 6 tiny tiles) */
+.game-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 10px !important;
+}
+@media (min-width: 900px) {
+  .game-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 12px !important;
+  }
+}
+
 /* Fill game thumbnails — no white empty half (Aviator etc.) */
 .game-card {
   overflow: hidden !important;
