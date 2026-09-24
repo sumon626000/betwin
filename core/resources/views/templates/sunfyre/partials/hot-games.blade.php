@@ -85,15 +85,16 @@ $hotGames = [
     ["id"=>"e3c6bb32a3e5ba0492e2270011854803","name"=>"Ancient Fortunes: Zeus","img"=>"https://ossimg.91admin123admin.com/91club/gamelogo/MG/SMG_ancientFortunesZeus.png"],
 ];
 @endphp
+@php if (!empty($homeTileLimit)) { $hotGames = array_slice($hotGames, 0, (int) $homeTileLimit); } @endphp
 
-@foreach ($hotGames as $game)
+@foreach ($hotGames as $i => $game)
     <div class="game-card" data-category="hot">
         @auth
             <a href="{{ url('user/jili/launch?game_code='.$game['id'].'&provider='.($game['provider'] ?? 'jili')) }}" class="game-card-img" title="{{ $game['name'] }}">
         @else
             <a href="{{ route('user.login') }}" class="game-card-img" title="{{ $game['name'] }}">
         @endauth
-                <img src="{{ $game['img'] }}" alt="{{ $game['name'] }}" loading="lazy" referrerpolicy="no-referrer"
+                <img src="{{ $i < ($homeEagerCount ?? 0) ? $game['img'] : '' }}" @if($i >= ($homeEagerCount ?? 0)) data-src="{{ $game['img'] }}" @endif alt="{{ $game['name'] }}" loading="{{ $i < ($homeEagerCount ?? 0) ? 'eager' : 'lazy' }}" @if($i < 3) fetchpriority="high" @endif decoding="async" referrerpolicy="no-referrer" width="120" height="120"
                      onerror="this.closest('.game-card')?.remove()">
             </a>
     </div>

@@ -1,4 +1,4 @@
-@php
+﻿@php
 $fishingGames = [
     ["id"=>"e794bf5717aca371152df192341fe68b","name"=>"Royal Fishing","provider"=>"jili","img"=>"https://ossimg.91admin123admin.com/91club/gamelogo/JILI/1.png"],
     ["id"=>"e333695bcff28acdbecc641ae6ee2b23","name"=>"Bombing Fishing","provider"=>"jili","img"=>"https://ossimg.91admin123admin.com/91club/gamelogo/JILI/20.png"],
@@ -14,15 +14,16 @@ $fishingGames = [
     ["id"=>"f2b04833d555ef9989748f9ecabd5249","name"=>"Fortune King Jackpot","provider"=>"jili","img"=>"https://ossimg.91admin123admin.com/91club/gamelogo/JILI/464.png"],
 ];
 @endphp
+@php if (!empty($homeTileLimit)) { $fishingGames = array_slice($fishingGames, 0, (int) $homeTileLimit); } @endphp
 
-@foreach ($fishingGames as $game)
+@foreach ($fishingGames as $i => $game)
     <div class="game-card" data-category="fishing">
         @auth
             <a href="{{ url('user/jili/launch?game_code='.$game['id'].'&provider='.($game['provider'] ?? 'jili')) }}" class="game-card-img" title="{{ $game['name'] }}">
         @else
             <a href="{{ route('user.login') }}" class="game-card-img" title="{{ $game['name'] }}">
         @endauth
-                <img src="{{ $game['img'] }}" alt="{{ $game['name'] }}" loading="lazy" referrerpolicy="no-referrer"
+                <img src="{{ $i < ($homeEagerCount ?? 0) ? $game['img'] : '' }}" @if($i >= ($homeEagerCount ?? 0)) data-src="{{ $game['img'] }}" @endif alt="{{ $game['name'] }}" loading="{{ $i < ($homeEagerCount ?? 0) ? 'eager' : 'lazy' }}" @if($i < 3) fetchpriority="high" @endif decoding="async" referrerpolicy="no-referrer" width="120" height="120"
                      onerror="this.closest('.game-card')?.remove()">
             </a>
         <div class="game-card-name">{{ $game['name'] }}</div>

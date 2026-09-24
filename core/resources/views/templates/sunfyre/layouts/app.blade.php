@@ -75,23 +75,26 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://ossimg.91admin123admin.com" crossorigin>
+    <link rel="preconnect" href="https://ossimg.dkwinpicture.com" crossorigin>
+    <link rel="dns-prefetch" href="https://huidu-bucket.s3.ap-southeast-1.amazonaws.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&display=swap" rel="stylesheet"></noscript>
 
     <link href="{{ asset('assets/global/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/global/css/all.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{{ asset('assets/global/css/line-awesome.min.css') }}">
-    <link href="{{ asset('assets/global/css/lightcase.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('assets/global/css/select2.min.css') }}">
-    <link rel="stylesheet" href="{{ asset($activeTemplateTrue . 'css/slick.css') }}">
-    <link rel="stylesheet" href="{{ asset($activeTemplateTrue . 'css/odometer.css') }}">
-    <link rel="stylesheet" href="{{ asset($activeTemplateTrue . 'css/iconmoon.css') }}">
+    <link href="{{ asset('assets/global/css/lightcase.css') }}" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="{{ asset('assets/global/css/select2.min.css') }}" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="{{ asset($activeTemplateTrue . 'css/slick.css') }}" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="{{ asset($activeTemplateTrue . 'css/odometer.css') }}" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="{{ asset($activeTemplateTrue . 'css/iconmoon.css') }}" media="print" onload="this.media='all'">
     <link
         href="{{ asset($activeTemplateTrue . 'css/color.php') }}?color={{ $baseColor }}&secondColor={{ $secondColor }}&v={{ $colorCache }}"
         rel="stylesheet">
     <link rel="stylesheet" href="{{ asset($activeTemplateTrue . 'css/main.css') }}?v={{ $colorCache }}">
     <link href="{{ asset($activeTemplateTrue . 'css/custom.css') }}?v={{ $colorCache }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset($activeTemplateTrue . 'css/theme.css') }}?v=58-{{ $colorCache }}">
+    <link rel="stylesheet" href="{{ asset($activeTemplateTrue . 'css/theme.css') }}?v=59-{{ $colorCache }}">
 
     @stack('style-lib')
     <link rel="manifest" href="{{ route('pwa.configuration') }}">
@@ -164,11 +167,11 @@
         @include('partials.push_script')
     @endif
 
-    <script src="{{ asset('assets/global/js/select2.min.js') }}"></script>
-    <script src="{{ asset('assets/global/js/lightcase.js') }}"></script>
-    <script src="{{ asset($activeTemplateTrue . 'js/slick.min.js') }}"></script>
-    <script src="{{ asset($activeTemplateTrue . 'js/odometer.min.js') }}"></script>
-    <script src="{{ asset($activeTemplateTrue . 'js/viewport.jquery.js') }}"></script>
+    <script src="{{ asset('assets/global/js/select2.min.js') }}" defer></script>
+    <script src="{{ asset('assets/global/js/lightcase.js') }}" defer></script>
+    <script src="{{ asset($activeTemplateTrue . 'js/slick.min.js') }}" defer></script>
+    <script src="{{ asset($activeTemplateTrue . 'js/odometer.min.js') }}" defer></script>
+    <script src="{{ asset($activeTemplateTrue . 'js/viewport.jquery.js') }}" defer></script>
     <script src="{{ asset($activeTemplateTrue . 'js/main.js') }}"></script>
 
     <script>
@@ -177,6 +180,7 @@
         window.RV_LAUNCH_BASE = @json(url('user/jili/launch'));
     </script>
     <script src="{{ asset($activeTemplateTrue . 'js/favorites.js') }}?v=1"></script>
+    <script src="{{ asset($activeTemplateTrue . 'js/lazy-img.js') }}?v=1"></script>
 
     @stack('script')
 

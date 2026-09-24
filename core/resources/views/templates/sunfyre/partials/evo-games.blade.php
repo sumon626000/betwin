@@ -52,15 +52,16 @@ $evoGames = [
     ]
 ];
 @endphp
+@php if (!empty($homeTileLimit)) { $evoGames = array_slice($evoGames, 0, (int) $homeTileLimit); } @endphp
 
-@foreach ($evoGames as $game)
+@foreach ($evoGames as $i => $game)
     <div class="swiper-slide game-item-box game-card" data-category="evo">
         @auth
             <a href="{{ url('user/jili/launch?game_code='.$game['id'].'&provider=evo') }}" class="game-card-img">
         @else
             <a href="{{ route('user.login') }}" class="game-card-img">
         @endauth
-                <img src="{{ $game['img'] }}" alt="{{ $game['name'] }}">
+                <img src="{{ $i < ($homeEagerCount ?? 0) ? $game['img'] : '' }}" @if($i >= ($homeEagerCount ?? 0)) data-src="{{ $game['img'] }}" @endif alt="{{ $game['name'] }}" loading="{{ $i < ($homeEagerCount ?? 0) ? 'eager' : 'lazy' }}" @if($i < 3) fetchpriority="high" @endif decoding="async" referrerpolicy="no-referrer" width="120" height="120">
             </a>
     </div>
 @endforeach

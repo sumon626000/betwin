@@ -1,4 +1,4 @@
-{{-- user_header.blade.php --}}
+﻿{{-- user_header.blade.php --}}
 
 <div class="site-topbar">
     @include($activeTemplate . 'partials.apk_banner')
@@ -15,7 +15,7 @@
         </div>
     </button>
     <a class="navbar-brand logo me-auto" href="{{ route('home') }}" style="text-decoration: none; margin-left: 8px;">
-        <img src="{{ asset('assets/images/logo_icon/logo.png') }}" alt="{{ __(gs('site_name')) }}" class="brand-logo">
+        <img src="{{ asset('assets/images/logo_icon/logo.png') }}" alt="{{ __(gs('site_name')) }}" class="brand-logo" width="120" height="36" decoding="async" fetchpriority="high">
     </a>
     <div class="header-right">
         @include($activeTemplate . 'partials.lang_switch')

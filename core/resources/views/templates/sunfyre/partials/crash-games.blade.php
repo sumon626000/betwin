@@ -63,14 +63,15 @@ $crashGames = [
     ],
 ];
 @endphp
+@php if (!empty($homeTileLimit)) { $crashGames = array_slice($crashGames, 0, (int) $homeTileLimit); } @endphp
 
-@foreach ($crashGames as $game)
+@foreach ($crashGames as $i => $game)
     @auth
         <a href="{{ url('user/jili/launch?game_code='.$game['id'].'&provider='.($game['provider'] ?? 'jili')) }}" class="game-card" data-status="1">
     @else
         <a href="{{ route('user.login') }}" class="game-card" data-status="1">
     @endauth
-            <img class="game-card-img" src="{{ $game['img'] }}" alt="{{ $game['name'] }}" loading="lazy" referrerpolicy="no-referrer"
+            <img class="game-card-img" src="{{ $i < ($homeEagerCount ?? 0) ? $game['img'] : '' }}" @if($i >= ($homeEagerCount ?? 0)) data-src="{{ $game['img'] }}" @endif alt="{{ $game['name'] }}" loading="{{ $i < ($homeEagerCount ?? 0) ? 'eager' : 'lazy' }}" @if($i < 3) fetchpriority="high" @endif decoding="async" referrerpolicy="no-referrer" width="120" height="120"
                  onerror="this.closest('.game-card')?.remove()">
             <div class="game-card-name">{{ $game['name'] }}</div>
         </a>

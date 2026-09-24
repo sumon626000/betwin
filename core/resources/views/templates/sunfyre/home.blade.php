@@ -378,7 +378,27 @@
 
     /* Home stacked rows: show max 12 tiles per category */
     .home-row-grid > *:nth-child(n+13) { display: none !important; }
+
+    /* Skip paint/layout for below-fold category rows until scrolled near */
+    .home-row[data-home-row="1"] ~ .home-row[data-home-row="1"] {
+        content-visibility: auto;
+        contain-intrinsic-size: 320px;
+    }
+    .partner-logos, .main-footer-section, .game-center {
+        content-visibility: auto;
+        contain-intrinsic-size: 200px;
+    }
+    .game-card-img img, img.game-card-img {
+        background: #e8f0fa;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+    }
 </style>
+
+@php
+    $homeTileLimit = 12;
+    $homeEagerCount = 6;
+@endphp
 
 <div class="custom-home-wrapper">
 
@@ -529,6 +549,7 @@
         @include($activeTemplate . 'partials.provider-grid')
     </div>
 
+    {{-- Provider full lists load on demand from /games/{slug}.json (keeps first paint light) --}}
     <div class="section-container" data-provider="__dynamic__" id="provider-dynamic-section" style="display:none;">
         <div class="sec-header">
             <a href="javascript:void(0)" class="btn-see-all" onclick="backToProviders()"><i class="fas fa-arrow-left"></i> Back</a>
@@ -542,138 +563,6 @@
             <p style="margin:0;font-size:13px;">@lang('This provider is enabled from RapidVerse. Full game icons will appear after game-list import.')</p>
         </div>
     </div>
-
-    @if(isset($gameStatus['jili']) && $gameStatus['jili']->status != 0)
-    <div class="section-container" data-provider="jili" style="display:none;">
-        <div class="sec-header">
-            <a href="javascript:void(0)" class="btn-see-all" onclick="backToProviders()"><i class="fas fa-arrow-left"></i> Back</a>
-            <div class="sec-title"><i class="fas fa-fire"></i> JILI GAMES</div>
-        </div>
-        <div class="games-section" id="jili-wrapper" data-status="{{ $gameStatus['jili']->status }}">
-            <div class="game-grid">@include($activeTemplate . 'partials.jili-games')</div>
-        </div>
-    </div>
-    @endif
-
-    @if(isset($gameStatus['pg']) && $gameStatus['pg']->status != 0)
-    <div class="section-container" data-provider="pg" style="display:none;">
-        <div class="sec-header">
-            <a href="javascript:void(0)" class="btn-see-all" onclick="backToProviders()"><i class="fas fa-arrow-left"></i> Back</a>
-            <div class="sec-title"><i class="fas fa-fire"></i> PG SOFT</div>
-        </div>
-        <div class="games-section" id="pg-wrapper" data-status="{{ $gameStatus['pg']->status }}">
-            <div class="game-grid">@include($activeTemplate . 'partials.pg-games')</div>
-        </div>
-    </div>
-    @endif
-
-    @if(isset($gameStatus['jdb']) && $gameStatus['jdb']->status != 0)
-    <div class="section-container" data-provider="jdb" style="display:none;">
-        <div class="sec-header">
-            <a href="javascript:void(0)" class="btn-see-all" onclick="backToProviders()"><i class="fas fa-arrow-left"></i> Back</a>
-            <div class="sec-title"><i class="fas fa-fire"></i> JDB GAMES</div>
-        </div>
-        <div class="games-section" id="jdb-wrapper" data-status="{{ $gameStatus['jdb']->status }}">
-            <div class="game-grid">@include($activeTemplate . 'partials.jdb-games')</div>
-        </div>
-    </div>
-    @endif
-
-    @if(isset($gameStatus['cq9']) && $gameStatus['cq9']->status != 0)
-    <div class="section-container" data-provider="cq9" style="display:none;">
-        <div class="sec-header">
-            <a href="javascript:void(0)" class="btn-see-all" onclick="backToProviders()"><i class="fas fa-arrow-left"></i> Back</a>
-            <div class="sec-title"><i class="fas fa-fire"></i> CQ9 GAMES</div>
-        </div>
-        <div class="games-section" id="cq9-wrapper" data-status="{{ $gameStatus['cq9']->status }}">
-            <div class="game-grid">@include($activeTemplate . 'partials.cq9-games')</div>
-        </div>
-    </div>
-    @endif
-
-    @if(isset($gameStatus['idg']) && $gameStatus['idg']->status != 0)
-    <div class="section-container" data-provider="idg" style="display:none;">
-        <div class="sec-header">
-            <a href="javascript:void(0)" class="btn-see-all" onclick="backToProviders()"><i class="fas fa-arrow-left"></i> Back</a>
-            <div class="sec-title"><i class="fas fa-fire"></i> IDG GAMES</div>
-        </div>
-        <div class="games-section" id="idg-wrapper" data-status="{{ $gameStatus['idg']->status }}">
-            <div class="game-grid">@include($activeTemplate . 'partials.idg-games')</div>
-        </div>
-    </div>
-    @endif
-
-    @if(isset($gameStatus['km']) && $gameStatus['km']->status != 0)
-    <div class="section-container" data-provider="km" style="display:none;">
-        <div class="sec-header">
-            <a href="javascript:void(0)" class="btn-see-all" onclick="backToProviders()"><i class="fas fa-arrow-left"></i> Back</a>
-            <div class="sec-title"><i class="fas fa-fire"></i> KM GAMES</div>
-        </div>
-        <div class="games-section" id="km-wrapper" data-status="{{ $gameStatus['km']->status }}">
-            <div class="game-grid">@include($activeTemplate . 'partials.km-games')</div>
-        </div>
-    </div>
-    @endif
-
-    @if(isset($gameStatus['v8']) && $gameStatus['v8']->status != 0)
-    <div class="section-container" data-provider="v8" style="display:none;">
-        <div class="sec-header">
-            <a href="javascript:void(0)" class="btn-see-all" onclick="backToProviders()"><i class="fas fa-arrow-left"></i> Back</a>
-            <div class="sec-title"><i class="fas fa-fire"></i> V8 GAMES</div>
-        </div>
-        <div class="games-section" id="v8-wrapper" data-status="{{ $gameStatus['v8']->status }}">
-            <div class="game-grid">@include($activeTemplate . 'partials.v8-games')</div>
-        </div>
-    </div>
-    @endif
-
-    @if(isset($gameStatus['mg']) && $gameStatus['mg']->status != 0)
-    <div class="section-container" data-provider="mg" style="display:none;">
-        <div class="sec-header">
-            <a href="javascript:void(0)" class="btn-see-all" onclick="backToProviders()"><i class="fas fa-arrow-left"></i> Back</a>
-            <div class="sec-title"><i class="fas fa-fire"></i> MG GAMES</div>
-        </div>
-        <div class="games-section" id="mg-wrapper" data-status="{{ $gameStatus['mg']->status }}">
-            <div class="game-grid">@include($activeTemplate . 'partials.mg-games')</div>
-        </div>
-    </div>
-    @endif
-
-    @if(isset($gameStatus['g9']) && $gameStatus['g9']->status != 0)
-    <div class="section-container" data-provider="g9" style="display:none;">
-        <div class="sec-header">
-            <a href="javascript:void(0)" class="btn-see-all" onclick="backToProviders()"><i class="fas fa-arrow-left"></i> Back</a>
-            <div class="sec-title"><i class="fas fa-fire"></i> G9 GAMES</div>
-        </div>
-        <div class="games-section" id="g9-wrapper" data-status="{{ $gameStatus['g9']->status }}">
-            <div class="game-grid">@include($activeTemplate . 'partials.g9-games')</div>
-        </div>
-    </div>
-    @endif
-
-    @if(isset($gameStatus['card365']) && $gameStatus['card365']->status != 0)
-    <div class="section-container" data-provider="card365" style="display:none;">
-        <div class="sec-header">
-            <a href="javascript:void(0)" class="btn-see-all" onclick="backToProviders()"><i class="fas fa-arrow-left"></i> Back</a>
-            <div class="sec-title"><i class="fas fa-fire"></i> CARD365</div>
-        </div>
-        <div class="games-section" id="card365-wrapper" data-status="{{ $gameStatus['card365']->status }}">
-            <div class="game-grid">@include($activeTemplate . 'partials.card365-games')</div>
-        </div>
-    </div>
-    @endif
-
-    @if(isset($gameStatus['evo']) && $gameStatus['evo']->status != 0)
-    <div class="section-container" data-provider="evo" style="display:none;">
-        <div class="sec-header">
-            <a href="javascript:void(0)" class="btn-see-all" onclick="backToProviders()"><i class="fas fa-arrow-left"></i> Back</a>
-            <div class="sec-title"><i class="fas fa-fire"></i> EVOLUTION</div>
-        </div>
-        <div class="games-section" id="evo-slot-wrapper" data-status="{{ $gameStatus['evo']->status }}">
-            <div class="game-grid">@include($activeTemplate . 'partials.evo-games')</div>
-        </div>
-    </div>
-    @endif
 </div>
 
 <!-- GAME CENTER -->
@@ -999,6 +888,7 @@
         section.style.display = 'block';
         section.classList.add('show-anim');
         if (window.B369Fav) window.B369Fav.decorate(grid);
+        if (window.B369Lazy) window.B369Lazy.observe();
     }
 
     async function selectProvider(provider) {
@@ -1012,7 +902,7 @@
 
         try {
             if (!rvGamesCache[provider]) {
-                const res = await fetch('/games/' + encodeURIComponent(provider) + '.json?v=2', { cache: 'no-store' });
+                const res = await fetch('/games/' + encodeURIComponent(provider) + '.json?v=3', { cache: 'force-cache' });
                 if (res.ok) {
                     const data = await res.json();
                     rvGamesCache[provider] = Array.isArray(data) ? data : (data.gameLists || []);

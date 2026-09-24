@@ -146,15 +146,16 @@ $slotGames = [
     ["id"=>"bcbf0d52dfa96c70273484657331eb01","name"=>"Book of Oz","img"=>"https://ossimg.91admin123admin.com/91club/gamelogo/MG/SMG_bookOfOz.png"],
 ];
 @endphp
+@php if (!empty($homeTileLimit)) { $slotGames = array_slice($slotGames, 0, (int) $homeTileLimit); } @endphp
 
-@foreach ($slotGames as $game)
+@foreach ($slotGames as $i => $game)
     <div class="swiper-slide game-item-box game-card" data-category="slot">
         @auth
             <a href="{{ url('user/jili/launch?game_code='.$game['id'].'&provider=jili') }}" class="game-card-img">
         @else
             <a href="{{ route('user.login') }}" class="game-card-img">
         @endauth
-                <img src="{{ $game['img'] }}" alt="{{ $game['name'] }}">
+                <img src="{{ $i < ($homeEagerCount ?? 0) ? $game['img'] : '' }}" @if($i >= ($homeEagerCount ?? 0)) data-src="{{ $game['img'] }}" @endif alt="{{ $game['name'] }}" loading="{{ $i < ($homeEagerCount ?? 0) ? 'eager' : 'lazy' }}" @if($i < 3) fetchpriority="high" @endif decoding="async" referrerpolicy="no-referrer" width="120" height="120">
             </a>
     </div>
 @endforeach

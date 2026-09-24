@@ -61,15 +61,16 @@
         ["id" => "3e4dfa6942c6b7145367dbfd0d96ea47", "name" => "Ludo", "img" => "https://huidu-bucket.s3.ap-southeast-1.amazonaws.com/api/km/Game_KMQM_KM_Virtual_Animal_Race_343x200.jpg"],
     ];
 @endphp
+@php if (!empty($homeTileLimit)) { $kmGames = array_slice($kmGames, 0, (int) $homeTileLimit); } @endphp
 
-@foreach ($kmGames as $game)
+@foreach ($kmGames as $i => $game)
     <div class="swiper-slide game-item-box game-card" data-category="km">
         @auth
             <a href="{{ url('user/jili/launch?game_code='.$game['id'].'&provider=km') }}" class="game-card-img">
         @else
             <a href="{{ route('user.login') }}" class="game-card-img">
         @endauth
-                <img src="{{ $game['img'] }}" alt="{{ $game['name'] }}">
+                <img src="{{ $i < ($homeEagerCount ?? 0) ? $game['img'] : '' }}" @if($i >= ($homeEagerCount ?? 0)) data-src="{{ $game['img'] }}" @endif alt="{{ $game['name'] }}" loading="{{ $i < ($homeEagerCount ?? 0) ? 'eager' : 'lazy' }}" @if($i < 3) fetchpriority="high" @endif decoding="async" referrerpolicy="no-referrer" width="120" height="120">
             </a>
     </div>
 @endforeach
