@@ -78,7 +78,7 @@
                 <span class="sb-list__ico"><i class="fas fa-user-group"></i></span>
                 <span class="sb-list__label">@lang('Invite friends')</span>
             </a>
-            <a href="#" class="sb-list__item">
+            <a href="javascript:void(0)" class="sb-list__item" onclick="(window.B369Fav&&B369Fav.showFavorites()); if(typeof toggleSidebar==='function') toggleSidebar();">
                 <span class="sb-list__ico"><i class="fas fa-heart"></i></span>
                 <span class="sb-list__label">@lang('Favorites')</span>
             </a>

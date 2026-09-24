@@ -91,7 +91,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="{{ asset($activeTemplateTrue . 'css/main.css') }}?v={{ $colorCache }}">
     <link href="{{ asset($activeTemplateTrue . 'css/custom.css') }}?v={{ $colorCache }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset($activeTemplateTrue . 'css/theme.css') }}?v=56-{{ $colorCache }}">
+    <link rel="stylesheet" href="{{ asset($activeTemplateTrue . 'css/theme.css') }}?v=57-{{ $colorCache }}">
 
     @stack('style-lib')
     <link rel="manifest" href="{{ route('pwa.configuration') }}">
@@ -170,6 +170,13 @@
     <script src="{{ asset($activeTemplateTrue . 'js/odometer.min.js') }}"></script>
     <script src="{{ asset($activeTemplateTrue . 'js/viewport.jquery.js') }}"></script>
     <script src="{{ asset($activeTemplateTrue . 'js/main.js') }}"></script>
+
+    <script>
+        window.RV_LOGGED_IN = @json(auth()->check());
+        window.RV_LOGIN_URL = @json(route('user.login'));
+        window.RV_LAUNCH_BASE = @json(url('user/jili/launch'));
+    </script>
+    <script src="{{ asset($activeTemplateTrue . 'js/favorites.js') }}?v=1"></script>
 
     @stack('script')
 

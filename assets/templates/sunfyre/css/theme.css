@@ -521,11 +521,34 @@ header.header,
   height: auto !important;
 }
 
-/* Fill game thumbnails — no white empty half (Aviator etc.) */
-.game-card {
-  overflow: hidden !important;
-  border-radius: 10px !important;
+/* Game favorite heart */
+.game-card-wrap {
+  position: relative !important;
+  display: block !important;
+  width: 100% !important;
 }
+.game-card-fav {
+  position: absolute !important;
+  top: 5px !important;
+  right: 5px !important;
+  width: 28px !important;
+  height: 28px !important;
+  border-radius: 50% !important;
+  background: rgba(0, 0, 0, 0.48) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  border: 0 !important;
+  z-index: 8 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+}
+.game-card-fav.active {
+  color: #ff4d6d !important;
+  background: rgba(255, 77, 109, 0.22) !important;
+}
+
 
 .game-card-img,
 a.game-card-img {

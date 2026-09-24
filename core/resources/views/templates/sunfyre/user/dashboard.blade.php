@@ -132,13 +132,20 @@
     }
 
     .game-card-fav {
-        position: absolute; top: 5px; right: 5px; width: 26px; height: 26px;
-        border-radius: 50%; background: rgba(0,0,0,0.45); backdrop-filter: blur(4px);
+        position: absolute; top: 5px; right: 5px; width: 28px; height: 28px;
+        border-radius: 50%; background: rgba(0,0,0,0.48); backdrop-filter: blur(4px);
         display: flex; align-items: center; justify-content: center;
-        color: rgba(255,255,255,0.6); font-size: 13px; cursor: pointer;
-        z-index: 5; transition: color 0.2s, background 0.2s; border: none; flex-shrink: 0;
+        color: rgba(255,255,255,0.85); font-size: 14px; cursor: pointer;
+        z-index: 8; transition: color 0.2s, background 0.2s, transform 0.15s; border: none; flex-shrink: 0;
+        padding: 0; line-height: 1;
     }
-    .game-card-fav.active { color: var(--gold-text); background: rgba(240,192,48,0.18); }
+    .game-card-fav:active { transform: scale(0.9); }
+    .game-card-fav.active {
+        color: #ff4d6d;
+        background: rgba(255, 77, 109, 0.2);
+        box-shadow: 0 0 0 1px rgba(255,77,109,0.35);
+    }
+    .game-card-fav i { pointer-events: none; }
 
     .game-card-name {
         font-size: 10px; font-weight: 700; color: var(--text-main); padding: 5px 6px;
@@ -408,6 +415,9 @@
         <a href="javascript:void(0)" class="cat-pill active" onclick="filterGames('hot', this)">
             <i class="fas fa-fire"></i> @lang('HOT')
         </a>
+        <a href="javascript:void(0)" class="cat-pill" data-cat="favorite" onclick="filterGames('favorite', this)">
+            <i class="fas fa-heart"></i> @lang('FAV')
+        </a>
         <a href="javascript:void(0)" class="cat-pill" onclick="filterGames('sports', this)">
             <i class="fas fa-futbol"></i> @lang('SPORTS')
         </a>
@@ -447,7 +457,7 @@
     <div class="section-container home-row" data-provider="sports" data-home-row="1">
         <div class="sec-header">
             <div class="sec-title"><i class="fas fa-futbol"></i> @lang('SPORTS')</div>
-            <a href="javascript:void(0)" class="btn-see-all" onclick="filterGames('sports', document.querySelectorAll('.cat-pill')[1])">@lang('See All')</a>
+            <a href="javascript:void(0)" class="btn-see-all" onclick="filterGames('sports', document.querySelectorAll('.cat-pill')[2])">@lang('See All')</a>
         </div>
         <div class="games-section" id="sports-wrapper" data-status="1">
             <div class="game-grid home-row-grid">@include($activeTemplate . 'partials.sports-games')</div>
@@ -457,7 +467,7 @@
     <div class="section-container home-row" data-provider="crash" data-home-row="1">
         <div class="sec-header">
             <div class="sec-title"><i class="fas fa-chart-line"></i> @lang('CRASH / MINI')</div>
-            <a href="javascript:void(0)" class="btn-see-all" onclick="filterGames('crash', document.querySelectorAll('.cat-pill')[2])">@lang('See All')</a>
+            <a href="javascript:void(0)" class="btn-see-all" onclick="filterGames('crash', document.querySelectorAll('.cat-pill')[3])">@lang('See All')</a>
         </div>
         <div class="games-section" id="crash-wrapper" data-status="1">
             <div class="game-grid home-row-grid">@include($activeTemplate . 'partials.crash-games')</div>
@@ -467,7 +477,7 @@
     <div class="section-container home-row" data-provider="casino" data-home-row="1">
         <div class="sec-header">
             <div class="sec-title"><i class="fas fa-video"></i> @lang('LIVE CASINO')</div>
-            <a href="javascript:void(0)" class="btn-see-all" onclick="filterGames('casino', document.querySelectorAll('.cat-pill')[4])">@lang('See All')</a>
+            <a href="javascript:void(0)" class="btn-see-all" onclick="filterGames('casino', document.querySelectorAll('.cat-pill')[5])">@lang('See All')</a>
         </div>
         <div class="games-section" id="casino-wrapper" data-status="{{ isset($gameStatus['evo']) ? $gameStatus['evo']->status : 1 }}">
             <div class="game-grid home-row-grid">@include($activeTemplate . 'partials.evo-games')</div>
@@ -477,7 +487,7 @@
     <div class="section-container home-row" data-provider="slots-row" data-home-row="1">
         <div class="sec-header">
             <div class="sec-title"><i class="fas fa-dice"></i> @lang('SLOTS')</div>
-            <a href="javascript:void(0)" class="btn-see-all" onclick="filterGames('slot', document.querySelectorAll('.cat-pill')[3])">@lang('See All')</a>
+            <a href="javascript:void(0)" class="btn-see-all" onclick="filterGames('slot', document.querySelectorAll('.cat-pill')[4])">@lang('See All')</a>
         </div>
         <div class="games-section" id="slots-home-wrapper" data-status="1">
             <div class="game-grid home-row-grid">@include($activeTemplate . 'partials.slot-games')</div>
@@ -487,7 +497,7 @@
     <div class="section-container home-row" data-provider="fishing" data-home-row="1">
         <div class="sec-header">
             <div class="sec-title"><i class="fas fa-fish"></i> @lang('FISHING')</div>
-            <a href="javascript:void(0)" class="btn-see-all" onclick="filterGames('fishing', document.querySelectorAll('.cat-pill')[6])">@lang('See All')</a>
+            <a href="javascript:void(0)" class="btn-see-all" onclick="filterGames('fishing', document.querySelectorAll('.cat-pill')[7])">@lang('See All')</a>
         </div>
         <div class="games-section" id="fishing-wrapper" data-status="1">
             <div class="game-grid home-row-grid">@include($activeTemplate . 'partials.fishing-games')</div>
@@ -497,10 +507,24 @@
     <div class="section-container home-row" data-provider="poker" data-home-row="1">
         <div class="sec-header">
             <div class="sec-title"><i class="fas fa-chess"></i> @lang('POKER / TABLE')</div>
-            <a href="javascript:void(0)" class="btn-see-all" onclick="filterGames('poker', document.querySelectorAll('.cat-pill')[7])">@lang('See All')</a>
+            <a href="javascript:void(0)" class="btn-see-all" onclick="filterGames('poker', document.querySelectorAll('.cat-pill')[8])">@lang('See All')</a>
         </div>
         <div class="games-section" id="poker-home-wrapper" data-status="1">
             <div class="game-grid home-row-grid">@include($activeTemplate . 'partials.km-games')</div>
+        </div>
+    </div>
+
+    <div class="section-container" data-provider="favorite" id="favorites-section" style="display:none;">
+        <div class="sec-header">
+            <div class="sec-title"><i class="fas fa-heart"></i> @lang('FAVORITES')</div>
+            <a href="javascript:void(0)" class="btn-see-all" onclick="filterGames('hot', document.querySelector('.cat-pill'))"><i class="fas fa-arrow-left"></i> @lang('Back')</a>
+        </div>
+        <div class="games-section">
+            <div class="game-grid" id="favorites-grid"></div>
+        </div>
+        <div id="favorites-empty" style="display:none;background:#fff;border-radius:12px;padding:28px 18px;text-align:center;color:#6b7280;">
+            <p style="margin:0 0 8px;font-weight:700;color:#123b66;">@lang('No favorites yet')</p>
+            <p style="margin:0;font-size:13px;">@lang('Tap the heart on any game to save it here.')</p>
         </div>
     </div>
 
@@ -662,13 +686,14 @@
 <div class="game-center">
     <div class="game-center-title">@lang('Game Center')</div>
     <div class="game-center-pills">
-        <a href="javascript:void(0)" class="gc-pill" onclick="filterGames('slot', document.querySelectorAll('.cat-pill')[3])">@lang('Slots')</a>
-        <a href="javascript:void(0)" class="gc-pill" onclick="filterGames('casino', document.querySelectorAll('.cat-pill')[4])">@lang('Live Casino')</a>
-        <a href="javascript:void(0)" class="gc-pill" onclick="filterGames('sports', document.querySelectorAll('.cat-pill')[1])">@lang('Sports')</a>
-        <a href="javascript:void(0)" class="gc-pill" onclick="filterGames('crash', document.querySelectorAll('.cat-pill')[2])">@lang('Crash')</a>
-        <a href="javascript:void(0)" class="gc-pill" onclick="filterGames('poker', document.querySelectorAll('.cat-pill')[7])">@lang('Poker')</a>
-        <a href="javascript:void(0)" class="gc-pill" onclick="filterGames('fishing', document.querySelectorAll('.cat-pill')[6])">@lang('Fish')</a>
-        <a href="javascript:void(0)" class="gc-pill" onclick="filterGames('table', document.querySelectorAll('.cat-pill')[5])">@lang('Table')</a>
+        <a href="javascript:void(0)" class="gc-pill" onclick="filterGames('slot', document.querySelectorAll('.cat-pill')[4])">@lang('Slots')</a>
+        <a href="javascript:void(0)" class="gc-pill" onclick="filterGames('casino', document.querySelectorAll('.cat-pill')[5])">@lang('Live Casino')</a>
+        <a href="javascript:void(0)" class="gc-pill" onclick="filterGames('sports', document.querySelectorAll('.cat-pill')[2])">@lang('Sports')</a>
+        <a href="javascript:void(0)" class="gc-pill" onclick="filterGames('crash', document.querySelectorAll('.cat-pill')[3])">@lang('Crash')</a>
+        <a href="javascript:void(0)" class="gc-pill" onclick="filterGames('poker', document.querySelectorAll('.cat-pill')[8])">@lang('Poker')</a>
+        <a href="javascript:void(0)" class="gc-pill" onclick="filterGames('fishing', document.querySelectorAll('.cat-pill')[7])">@lang('Fish')</a>
+        <a href="javascript:void(0)" class="gc-pill" onclick="filterGames('table', document.querySelectorAll('.cat-pill')[6])">@lang('Table')</a>
+        <a href="javascript:void(0)" class="gc-pill" onclick="filterGames('favorite', document.querySelector('.cat-pill[data-cat=favorite]'))">@lang('Favorites')</a>
     </div>
 </div>
 
@@ -785,6 +810,27 @@
 
             if (category === 'hot' || category === 'home' || category === 'all') {
                 showHomeOverview();
+                return;
+            }
+            if (category === 'favorite' || category === 'favourites' || category === 'favorites') {
+                document.querySelectorAll('.section-container').forEach(s => {
+                    s.style.display = 'none';
+                    s.classList.remove('show-anim');
+                });
+                document.getElementById('provider-grid-container').style.display = 'none';
+                const fav = document.getElementById('favorites-section');
+                if (fav) {
+                    fav.style.display = 'block';
+                    fav.classList.add('show-anim');
+                }
+                if (window.B369Fav) {
+                    window.B369Fav.renderFavoritesGrid(
+                        document.getElementById('favorites-grid'),
+                        document.getElementById('favorites-empty')
+                    );
+                }
+                document.querySelector('.main-footer-section').style.display = 'block';
+                document.querySelector('.game-center').style.display = 'block';
                 return;
             }
             if (category === 'slot') {
@@ -924,6 +970,7 @@
         }
         section.style.display = 'block';
         section.classList.add('show-anim');
+        if (window.B369Fav) window.B369Fav.decorate(grid);
     }
 
     async function selectProvider(provider) {
