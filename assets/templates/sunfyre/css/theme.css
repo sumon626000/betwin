@@ -1732,12 +1732,3 @@ body {
   border-radius: 8px;
   padding: 0 !important;
 }
-
-.sports-prov-card .sports-prov-logo img[src*='bti'],
-.sports-prov-card .sports-prov-logo img[src*='sbo'] {
-  background: #ffffff !important;
-  padding: 12% !important;
-  border-radius: 12px;
-  width: 86% !important;
-  height: 86% !important;
-}
