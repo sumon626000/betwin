@@ -29,16 +29,8 @@ class ApiGameController extends Controller
         $provider = $request->provider ?? 'JILI';
         $vendorCode = $this->getVendorCode($provider);
 
-        $callbackUrl = $settings['callback_url']
-            ?: env('RAPIDVERSE_CALLBACK_URL', 'https://bet369win.com/callback.php');
-        // Keep panel-compatible plain URL (RapidVerse often locks callback edit).
-        // Strip any previous ?secret_key= so launch matches panel URL.
-        $callbackUrl = preg_replace('/[?&]secret_key=[^&]*/', '', $callbackUrl);
-        $callbackUrl = rtrim($callbackUrl, '?&');
-        if ($callbackUrl === '' || !str_contains($callbackUrl, 'bet369win.com')) {
-            $callbackUrl = 'https://bet369win.com/callback.php';
-        }
-
+        // Official docs: https://rapidverse.site/api-docs — required launch fields only.
+        // returnUrl = player return page (NOT wallet callback; wallet is set in RapidVerse panel).
         $payload = [
             'userId'      => (string) $user->id,
             'gameCode'    => $request->game_code,
@@ -47,11 +39,6 @@ class ApiGameController extends Controller
             'language'    => '0',
             'phonetype'   => '1',
             'returnUrl'   => route('user.home'),
-            'currency'    => 'BDT',
-            'callbackUrl' => $callbackUrl,
-            'walletType'  => 'seamless',
-            'isSeamless'  => true,
-            'seamless'    => 1,
         ];
 
         $ch = curl_init($settings['api_url']);
@@ -83,12 +70,24 @@ class ApiGameController extends Controller
 
         $result = json_decode($response, true);
 
-        if ($httpCode !== 200 || !isset($result['code']) || $result['code'] != 0) {
-            return back()->withErrors($result['msg'] ?? 'Game server error');
+        // Live API: {code:0, data:{url}} — docs sample also shows {status, gameUrl}
+        $gameUrl = $result['data']['url']
+            ?? $result['gameUrl']
+            ?? $result['data']['gameUrl']
+            ?? null;
+
+        $ok = $httpCode === 200 && $gameUrl
+            && (
+                (isset($result['code']) && (int) $result['code'] === 0)
+                || (($result['status'] ?? '') === 'success')
+            );
+
+        if (!$ok) {
+            return back()->withErrors($result['msg'] ?? $result['message'] ?? 'Game server error');
         }
 
         return view('templates.sunfyre.gamelunch', [
-            'game_url' => $result['data']['url'],
+            'game_url' => $gameUrl,
             'game_provider' => strtoupper($provider),
             'pageTitle' => strtoupper($provider) . ' Game'
         ]);
@@ -97,7 +96,7 @@ class ApiGameController extends Controller
     private function getApiSettings(): array
     {
         $defaults = [
-            'api_url'      => env('RAPIDVERSE_API_URL', 'https://www.rapidverse.site/api/versev1'),
+            'api_url'      => env('RAPIDVERSE_API_URL', 'https://rapidverse.site/api/verse'),
             'api_token'    => env('RAPIDVERSE_API_TOKEN', ''),
             'secret_key'   => env('RAPIDVERSE_SECRET_KEY', ''),
             'callback_url' => env('RAPIDVERSE_CALLBACK_URL', 'https://bet369win.com/callback.php'),

@@ -19,7 +19,7 @@ class ApiGameControlController extends Controller
 
         if (!$apiSettings) {
             DB::table('api_game_settings')->insert([
-                'api_url'      => env('RAPIDVERSE_API_URL', 'https://www.rapidverse.site/api/versev1'),
+                'api_url'      => env('RAPIDVERSE_API_URL', 'https://rapidverse.site/api/verse'),
                 'api_token'    => env('RAPIDVERSE_API_TOKEN', ''),
                 'secret_key'   => env('RAPIDVERSE_SECRET_KEY', ''),
                 'callback_url' => env('RAPIDVERSE_CALLBACK_URL', 'https://bet369win.com/callback.php'),
