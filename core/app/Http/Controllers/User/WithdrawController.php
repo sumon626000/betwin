@@ -187,6 +187,13 @@ class WithdrawController extends Controller
         $adminNotification->click_url = urlPath('admin.withdraw.data.details', $withdraw->id);
         $adminNotification->save();
 
+        \App\Lib\AdminAlert::bigWithdraw(
+            (int) $user->id,
+            (string) $user->username,
+            (float) $withdraw->amount,
+            (int) $withdraw->id
+        );
+
         notify($user, 'WITHDRAW_REQUEST', [
             'method_name' => $withdraw->method->name,
             'method_currency' => $withdraw->currency,

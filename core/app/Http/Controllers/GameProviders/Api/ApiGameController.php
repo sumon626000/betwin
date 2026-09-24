@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\GameProviders\Api;
 
 use App\Http\Controllers\Controller;
+use App\Lib\AdminAlert;
+use App\Lib\GameLaunchStats;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -28,6 +30,11 @@ class ApiGameController extends Controller
 
         $provider = $request->provider ?? 'JILI';
         $vendorCode = $this->getVendorCode($provider);
+
+        if (empty($settings['api_url']) || empty($settings['api_token'])) {
+            AdminAlert::apiDown('Missing API URL or token', $provider);
+            return back()->withErrors('Game API is not configured');
+        }
 
         // Official docs: https://rapidverse.site/api-docs — required launch fields only.
         // returnUrl = player return page (NOT wallet callback; wallet is set in RapidVerse panel).
@@ -65,6 +72,7 @@ class ApiGameController extends Controller
         curl_close($ch);
 
         if ($error) {
+            AdminAlert::apiDown('Connection: ' . $error, $provider);
             return back()->withErrors('Connection error: ' . $error);
         }
 
@@ -83,8 +91,15 @@ class ApiGameController extends Controller
             );
 
         if (!$ok) {
-            return back()->withErrors($result['msg'] ?? $result['message'] ?? 'Game server error');
+            $msg = $result['msg'] ?? $result['message'] ?? 'Game server error';
+            // Rate-limit alerts for transport / auth failures (not every bad game code)
+            if ($httpCode === 0 || $httpCode >= 500 || $httpCode === 401 || $httpCode === 403) {
+                AdminAlert::apiDown("HTTP $httpCode — $msg", $provider);
+            }
+            return back()->withErrors($msg);
         }
+
+        GameLaunchStats::record($provider, (string) $request->game_code);
 
         return view('templates.sunfyre.gamelunch', [
             'game_url' => $gameUrl,

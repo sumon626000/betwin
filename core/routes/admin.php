@@ -216,6 +216,7 @@ Route::middleware('admin')->group(function () {
         Route::get('login/ipHistory/{ip}', 'loginIpHistory')->name('login.ipHistory');
         Route::get('notification/history', 'notificationHistory')->name('notification.history');
         Route::get('email/detail/{id}', 'emailDetails')->name('email.details');
+        Route::get('game-analytics', 'gameAnalytics')->name('game.analytics');
     });
 
     // Redeem Code

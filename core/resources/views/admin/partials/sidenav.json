@@ -541,6 +541,19 @@
                 "menu_active": [
                     "admin.report.transfer"
                 ]
+            },
+            {
+                "keyword": [
+                    "Game Analytics",
+                    "provider popularity",
+                    "top games",
+                    "launch stats",
+                    "which game played most",
+                    "Report"
+                ],
+                "title": "Game Analytics",
+                "route_name": "admin.report.game.analytics",
+                "menu_active": "admin.report.game.analytics"
             }
         ]
     },
