@@ -30,6 +30,8 @@
 
 html,
 body {
+  margin: 0 !important;
+  padding-top: 0 !important;
   background-color: #e8f0fa !important;
   background-image:
     url("/assets/images/page-icons.svg"),
@@ -97,12 +99,20 @@ a {
   line-height: 0 !important;
 }
 
-/* Header: white so the logo is not lost on navy */
+/* Header: flush to top — no body-pattern strip above white bar */
 .site-topbar {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: #ffffff;
+  margin: 0 !important;
+  padding: 0 !important;
+  padding-top: env(safe-area-inset-top, 0px);
+  background: #ffffff !important;
+  background-image: none !important;
+}
+
+.site-topbar .site-header {
+  margin: 0 !important;
 }
 
 .apk-banner {
@@ -116,8 +126,15 @@ a {
   box-sizing: border-box;
 }
 
-.apk-banner.is-hidden {
+.apk-banner.is-hidden,
+html.apk-banner-off .apk-banner {
   display: none !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  border: 0 !important;
 }
 
 .apk-banner__close {

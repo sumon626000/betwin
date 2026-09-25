@@ -3,10 +3,22 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title> {{ gs()->siteName(__($pageTitle)) }}</title>
     @include('partials.seo')
+    {{-- Hide APK banner before paint when user already dismissed it (prevents empty top gap) --}}
+    <script>
+        (function () {
+            try {
+                if (localStorage.getItem('b369_apk_banner_hidden') === '1'
+                    || window.matchMedia('(display-mode: standalone)').matches
+                    || window.navigator.standalone === true) {
+                    document.documentElement.classList.add('apk-banner-off');
+                }
+            } catch (e) {}
+        })();
+    </script>
 
     @php
         $baseColor = ltrim((string) gs('base_color'), '#') ?: '123B66';
@@ -67,9 +79,14 @@
             --text-muted: #6b7280 !important;
         }
         html, body {
+            margin: 0 !important;
+            padding-top: 0 !important;
             background: #e8f0fa !important;
             background-image: none !important;
             color: #172033 !important;
+        }
+        html.apk-banner-off .apk-banner {
+            display: none !important;
         }
     </style>
     
@@ -94,7 +111,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="{{ asset($activeTemplateTrue . 'css/main.css') }}?v={{ $colorCache }}">
     <link href="{{ asset($activeTemplateTrue . 'css/custom.css') }}?v={{ $colorCache }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset($activeTemplateTrue . 'css/theme.css') }}?v=61-{{ $colorCache }}">
+    <link rel="stylesheet" href="{{ asset($activeTemplateTrue . 'css/theme.css') }}?v=62-{{ $colorCache }}">
 
     @stack('style-lib')
     <link rel="manifest" href="{{ route('pwa.configuration') }}">
