@@ -378,26 +378,10 @@
 
     /* Home stacked rows: show max 12 tiles per category */
     .home-row-grid > *:nth-child(n+13) { display: none !important; }
-
-    /* Skip paint/layout for below-fold category rows until scrolled near */
-    .home-row[data-home-row="1"] ~ .home-row[data-home-row="1"] {
-        content-visibility: auto;
-        contain-intrinsic-size: 320px;
-    }
-    .partner-logos, .main-footer-section, .game-center {
-        content-visibility: auto;
-        contain-intrinsic-size: 200px;
-    }
-    .game-card-img img, img.game-card-img {
-        background: #e8f0fa;
-        aspect-ratio: 1 / 1;
-        object-fit: cover;
-    }
 </style>
 
 @php
     $homeTileLimit = 12;
-    $homeEagerCount = 6;
 @endphp
 
 <div class="custom-home-wrapper">

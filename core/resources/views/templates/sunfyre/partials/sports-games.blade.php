@@ -75,7 +75,7 @@ $fallbackSvg = function (string $label, string $bg1 = '#123b66', string $bg2 = '
         @else
             <a href="{{ route('user.login') }}" class="game-card-img" title="{{ $game['name'] }}">
         @endauth
-                <img src="{{ $i < ($homeEagerCount ?? 0) ? $img : '' }}" @if($i >= ($homeEagerCount ?? 0)) data-src="{{ $img }}" @endif alt="{{ $game['name'] }}" loading="{{ $i < ($homeEagerCount ?? 0) ? 'eager' : 'lazy' }}" @if($i < 3) fetchpriority="high" @endif decoding="async" referrerpolicy="no-referrer" width="120" height="120"
+                <img src="{{ $img }}" alt="{{ $game['name'] }}" loading="lazy" decoding="async" referrerpolicy="no-referrer" width="120" height="120"
                      onerror="this.onerror=null;this.src='{{ $fallbackSvg($game['name']) }}';">
             </a>
         <div class="game-card-name" style="font-size:11px;font-weight:700;text-align:center;padding:4px 2px 6px;color:#123b66;">{{ $game['name'] }}</div>
