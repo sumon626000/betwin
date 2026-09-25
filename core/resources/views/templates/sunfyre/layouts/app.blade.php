@@ -80,13 +80,23 @@
         }
         html, body {
             margin: 0 !important;
+            padding: 0 !important;
             padding-top: 0 !important;
             background: #e8f0fa !important;
             background-image: none !important;
             color: #172033 !important;
         }
-        html.apk-banner-off .apk-banner {
+        .site-topbar {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        html.apk-banner-off .apk-banner,
+        .apk-banner.is-hidden {
             display: none !important;
+            height: 0 !important;
+            min-height: 0 !important;
+            padding: 0 !important;
+            margin: 0 !important;
         }
     </style>
     
@@ -111,7 +121,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="{{ asset($activeTemplateTrue . 'css/main.css') }}?v={{ $colorCache }}">
     <link href="{{ asset($activeTemplateTrue . 'css/custom.css') }}?v={{ $colorCache }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset($activeTemplateTrue . 'css/theme.css') }}?v=62-{{ $colorCache }}">
+    <link rel="stylesheet" href="{{ asset($activeTemplateTrue . 'css/theme.css') }}?v=63-{{ $colorCache }}">
 
     @stack('style-lib')
     <link rel="manifest" href="{{ route('pwa.configuration') }}">

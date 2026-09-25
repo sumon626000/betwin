@@ -99,14 +99,13 @@ a {
   line-height: 0 !important;
 }
 
-/* Header: flush to top — no body-pattern strip above white bar */
+/* Header: flush to top — no empty strip above logo row */
 .site-topbar {
   position: sticky;
   top: 0;
   z-index: 100;
   margin: 0 !important;
   padding: 0 !important;
-  padding-top: env(safe-area-inset-top, 0px);
   background: #ffffff !important;
   background-image: none !important;
 }
@@ -115,6 +114,7 @@ a {
   margin: 0 !important;
 }
 
+/* APK sits above sticky header; collapses fully when hidden */
 .apk-banner {
   display: flex;
   align-items: center;
@@ -131,10 +131,12 @@ html.apk-banner-off .apk-banner {
   display: none !important;
   height: 0 !important;
   min-height: 0 !important;
+  max-height: 0 !important;
   padding: 0 !important;
   margin: 0 !important;
   overflow: hidden !important;
   border: 0 !important;
+  visibility: hidden !important;
 }
 
 .apk-banner__close {

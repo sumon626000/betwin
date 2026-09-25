@@ -1,8 +1,8 @@
 ﻿{{-- user_header.blade.php --}}
 
-<div class="site-topbar">
-    @include($activeTemplate . 'partials.apk_banner')
+@include($activeTemplate . 'partials.apk_banner')
 
+<div class="site-topbar">
 <header class="site-header">
     <button class="hamburger-btn" onclick="toggleSidebar()" type="button" aria-label="@lang('Menu')">
         <div class="hamburger-icon">
