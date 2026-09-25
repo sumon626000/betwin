@@ -1,10 +1,11 @@
 @php
-    $apkUrl = config('app.apk_url') ?: env('APK_DOWNLOAD_URL', '');
+    $externalApk = trim((string) (config('app.apk_url') ?: env('APK_DOWNLOAD_URL', '')));
+    $apkUrl = $externalApk !== '' ? $externalApk : route('download.apk');
     $apkIcon = asset('assets/images/logo_icon/favicon.png');
-    $apkName = __(gs('site_name')) . ' App Install';
+    $apkName = __(gs('site_name')) . ' App';
 @endphp
 
-<div class="apk-banner" id="apkBanner" role="region" aria-label="@lang('App install')">
+<div class="apk-banner" id="apkBanner" role="region" aria-label="@lang('App download')">
     <button type="button" class="apk-banner__close" id="apkBannerClose" aria-label="@lang('Close')">
         <i class="fas fa-times"></i>
     </button>
@@ -22,9 +23,9 @@
         </span>
     </div>
 
-    <button type="button" class="apk-banner__btn" id="apkInstallBtn" data-apk="{{ $apkUrl }}">
-        @lang('INSTALL')
-    </button>
+    <a href="{{ $apkUrl }}" class="apk-banner__btn" id="apkInstallBtn" data-apk="{{ $apkUrl }}" download>
+        @lang('DOWNLOAD')
+    </a>
 </div>
 
 <script>
@@ -62,6 +63,15 @@
         alert(msg);
     }
 
+    function downloadApk() {
+        var apk = (installBtn && (installBtn.getAttribute('data-apk') || installBtn.getAttribute('href'))) || '';
+        if (apk && apk.length > 4) {
+            window.location.href = apk;
+            return true;
+        }
+        return false;
+    }
+
     async function installPwa() {
         var deferred = window.__b369PwaPrompt || null;
         if (deferred) {
@@ -81,22 +91,26 @@
     }
 
     function fallbackInstall() {
-        var apk = installBtn && installBtn.getAttribute('data-apk');
-        if (apk && apk.length > 4) {
-            window.location.href = apk;
-            return;
-        }
+        if (downloadApk()) return;
         var ua = navigator.userAgent || '';
         var isIOS = /iPhone|iPad|iPod/i.test(ua);
         if (isIOS) {
             toast('@lang("Tap Share, then Add to Home Screen")');
         } else {
-            toast('@lang("Open browser menu and tap Install app / Add to Home screen")');
+            toast('@lang("APK download is not ready yet")');
         }
     }
 
     if (installBtn) {
         installBtn.addEventListener('click', async function (e) {
+            // Prefer direct APK download on Android; PWA only as bonus
+            var ua = navigator.userAgent || '';
+            var isAndroid = /Android/i.test(ua);
+            if (isAndroid) {
+                e.preventDefault();
+                if (!downloadApk()) fallbackInstall();
+                return;
+            }
             e.preventDefault();
             var ok = await installPwa();
             if (!ok) fallbackInstall();
@@ -104,6 +118,10 @@
     }
 
     window.__b369InstallApp = async function () {
+        var ua = navigator.userAgent || '';
+        if (/Android/i.test(ua)) {
+            if (downloadApk()) return;
+        }
         var ok = await installPwa();
         if (!ok) fallbackInstall();
     };
@@ -111,8 +129,6 @@
     window.addEventListener('beforeinstallprompt', function (e) {
         e.preventDefault();
         window.__b369PwaPrompt = e;
-        banner.classList.remove('is-hidden');
-        document.documentElement.classList.remove('apk-banner-off');
     });
 
     window.addEventListener('appinstalled', function () {

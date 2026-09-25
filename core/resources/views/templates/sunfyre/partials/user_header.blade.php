@@ -135,7 +135,7 @@
         <div class="sb-divider"></div>
 
         <nav class="sb-list">
-            <a href="javascript:void(0)" class="sb-list__item" id="sbAppInstall" onclick="(window.__b369InstallApp||function(){})();">
+            <a href="{{ route('download.apk') }}" class="sb-list__item" id="sbAppInstall" onclick="if(window.__b369InstallApp){event.preventDefault();window.__b369InstallApp();}">
                 <span class="sb-list__ico"><i class="fas fa-cloud-arrow-down"></i></span>
                 <span class="sb-list__label">@lang('APP Download')</span>
             </a>

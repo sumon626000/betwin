@@ -2,4 +2,9 @@
 
   bet369win.apk
 
-Or set APK_DOWNLOAD_URL in core/.env to a full download URL.
+Then users can download via:
+  /download-apk
+  /app.apk
+
+Optional: set APK_DOWNLOAD_URL in core/.env to an external full URL
+(e.g. Google Drive / CDN). External URL takes priority over the local file.
